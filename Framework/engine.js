@@ -1,5 +1,8 @@
+import routesEngine from './routesEngine.js'
 class EngineApp{
-    render(object){
-        console.log(object)
-    }
+    count=0
+    //Define routes
+    routesEngine= new routesEngine
 }
+
+export default  EngineApp
