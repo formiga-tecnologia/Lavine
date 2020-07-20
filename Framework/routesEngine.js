@@ -1,5 +1,6 @@
 class routesEngine{
     routeIndex=window.location.href
+    routeLine = ""
     routeVars = []
     routePath = []
     listenersEvents = [0]
@@ -9,7 +10,8 @@ class routesEngine{
         //Verify if route is exist in context
         this.routePath.forEach(element => {
             if(link.includes(element)){
-                console.log("rota verificada!")
+                this.getRouteVars()
+                this.routeLine = this.routeVars[this.routeVars.length]
                 verifyRoute=true
             }
         });

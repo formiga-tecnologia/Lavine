@@ -9,8 +9,13 @@ function Api(data){
     .then(json => changeDom(json.title))
 }
 
+//Add rota
+eng.routesEngine.registerRoute("/page")
+eng.routesEngine.registerRoute("/page/search?=")
+
 function GetDadosUpdate(){
     eng.routesEngine.getRouteVars()
+    eng.routesEngine.goToLink(window.location.href)
     if(eng.routesEngine.routeVars[5][eng.routesEngine.routeVars[5].length-1]!=0)
     {
         count= eng.routesEngine.routeVars[5][eng.routesEngine.routeVars[5].length-1]
