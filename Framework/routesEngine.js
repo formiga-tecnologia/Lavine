@@ -6,7 +6,6 @@ class routesEngine{
     goToLink(link){
         history.pushState(link,link)
         this.routeIndex=link
-        console.log(this.routeIndex)
         window.location.href=link
     }
     //Get vars Routes for pass for own vars
@@ -27,6 +26,7 @@ class routesEngine{
         }
         this.routeVars.push(varB)
     }
+    //When executes update event in page
     whenUpdate(eventClass){
         this.listenersEvents[0]=eventClass
         window.addEventListener("load",()=>this.listenersEvents[0],false)

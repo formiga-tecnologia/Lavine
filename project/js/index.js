@@ -5,11 +5,9 @@ let link=""
 
 function GetDadosUpdate(){
     eng.routesEngine.getRouteVars()
-    console.log(eng.routesEngine.routeVars)
     if(eng.routesEngine.routeVars[5][eng.routesEngine.routeVars[5].length-1]!=0)
     {
         count= eng.routesEngine.routeVars[5][eng.routesEngine.routeVars[5].length-1]
-        console.log(eng.routesEngine.routeVars[5][eng.routesEngine.routeVars[5].length-1])
         eng.routesEngine.goToLink("http://127.0.0.1:5500/project/index.html#pages/page="+count)
         eng.routesEngine.getRouteVars()
         fetch('https://jsonplaceholder.typicode.com/todos/'+count)
@@ -20,7 +18,6 @@ function GetDadosUpdate(){
 function GetDados(){
     count= parseInt(eng.routesEngine.routeVars[5][eng.routesEngine.routeVars[5].length-1])
     count+=1
-    console.log(count)
     eng.routesEngine.goToLink("http://127.0.0.1:5500/project/index.html#pages/page="+count)
     eng.routesEngine.getRouteVars()
     fetch('https://jsonplaceholder.typicode.com/todos/'+count)
@@ -35,4 +32,5 @@ function changeDom(value){
 document.getElementById("clBt").addEventListener("click",
     function(){GetDados()},false)
 
+//adicionar evento de atualização de pagina
 eng.routesEngine.whenUpdate(GetDadosUpdate())
