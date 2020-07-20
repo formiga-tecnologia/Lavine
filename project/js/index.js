@@ -1,15 +1,38 @@
 import EngineApp from '../../Framework/engine.js'
 let eng=new EngineApp()
-let count =1
+let count =0
 let link=""
 
-function GetDados(link){
-    eng.routesEngine.goToLink("http://127.0.0.1:5500/project/index.html#pages/0"+count)
-    count+=1 
-    fetch('https://jsonplaceholder.typicode.com/todos/'+link)
-    .then(response => response.json())
-    .then(json => console.log(json))
+function GetDadosUpdate(){
+    eng.routesEngine.getRouteVars()
+    console.log(eng.routesEngine.routeVars)
+    if(eng.routesEngine.routeVars[5][eng.routesEngine.routeVars[5].length-1]!=0)
+    {
+        count= eng.routesEngine.routeVars[5][eng.routesEngine.routeVars[5].length-1]
+        console.log(eng.routesEngine.routeVars[5][eng.routesEngine.routeVars[5].length-1])
+        eng.routesEngine.goToLink("http://127.0.0.1:5500/project/index.html#pages/page="+count)
+        eng.routesEngine.getRouteVars()
+        fetch('https://jsonplaceholder.typicode.com/todos/'+count)
+        .then(response => response.json())
+        .then(json => changeDom(json.title))
+    }
 }
+function GetDados(){
+    count= parseInt(eng.routesEngine.routeVars[5][eng.routesEngine.routeVars[5].length-1])
+    count+=1
+    console.log(count)
+    eng.routesEngine.goToLink("http://127.0.0.1:5500/project/index.html#pages/page="+count)
+    eng.routesEngine.getRouteVars()
+    fetch('https://jsonplaceholder.typicode.com/todos/'+count)
+    .then(response => response.json())
+    .then(json => changeDom(json.title))
+}
+function changeDom(value){
+    document.getElementById("consultlist").innerHTML=value
+}
+
 //Click para atualizar a rota
 document.getElementById("clBt").addEventListener("click",
-    function(){GetDados(count)},false)
+    function(){GetDados()},false)
+
+eng.routesEngine.whenUpdate(GetDadosUpdate())
