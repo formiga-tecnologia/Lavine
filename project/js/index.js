@@ -9,8 +9,12 @@ function Api(data){
     .then(json => changeDom(json.title))
 }
 
+//registrar rotas
+eng.routesEngine.registerRoute("/page")
+
 function GetDadosUpdate(){
     eng.routesEngine.getRouteVars()
+    eng.routesEngine.goToLink(window.location.href)
     if(eng.routesEngine.routeVars[5][eng.routesEngine.routeVars[5].length-1]!=0)
     {
         count= eng.routesEngine.routeVars[5][eng.routesEngine.routeVars[5].length-1]
@@ -25,7 +29,11 @@ function GetDados(){
     Api(count)
 }
 function changeDom(value){
-    document.getElementById("consultlist").innerHTML=value
+    try {
+        document.getElementById("consultlist").innerHTML=value   
+    } catch (error) {
+        console.log("Rota não identificada")
+    }
 }
 
 //Click para atualizar a rota
@@ -34,3 +42,4 @@ document.getElementById("clBt").addEventListener("click",
 
 //adicionar evento de atualização de pagina
 eng.routesEngine.whenUpdate(GetDadosUpdate())
+
