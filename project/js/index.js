@@ -3,16 +3,18 @@ let eng=new EngineApp()
 let count =0
 let link=""
 
+function Api(data){
+    fetch('https://jsonplaceholder.typicode.com/todos/'+data)
+    .then(response => response.json())
+    .then(json => changeDom(json.title))
+}
+
 function GetDadosUpdate(){
     eng.routesEngine.getRouteVars()
     if(eng.routesEngine.routeVars[5][eng.routesEngine.routeVars[5].length-1]!=0)
     {
         count= eng.routesEngine.routeVars[5][eng.routesEngine.routeVars[5].length-1]
-        eng.routesEngine.goToLink("http://127.0.0.1:5500/project/index.html#pages/page="+count)
-        eng.routesEngine.getRouteVars()
-        fetch('https://jsonplaceholder.typicode.com/todos/'+count)
-        .then(response => response.json())
-        .then(json => changeDom(json.title))
+        Api(count)
     }
 }
 function GetDados(){
@@ -20,9 +22,7 @@ function GetDados(){
     count+=1
     eng.routesEngine.goToLink("http://127.0.0.1:5500/project/index.html#pages/page="+count)
     eng.routesEngine.getRouteVars()
-    fetch('https://jsonplaceholder.typicode.com/todos/'+count)
-    .then(response => response.json())
-    .then(json => changeDom(json.title))
+    Api(count)
 }
 function changeDom(value){
     document.getElementById("consultlist").innerHTML=value
