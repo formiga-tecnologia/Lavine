@@ -4,9 +4,13 @@ let count =0
 let link=""
 //API
 function Api(data){
-    fetch('https://jsonplaceholder.typicode.com/todos/'+data)
+    fetch('https://jsonplaceholder.typicode.com/posts/'+data)
     .then(response => response.json())
     .then(json => changeDom(json.title))
+
+    fetch('https://jsonplaceholder.typicode.com/posts/'+data)
+    .then(response => response.json())
+    .then(json => eng.renderEngine.renderPage("div",json.body,"dinamicType"))
 }
 
 //Add rota
@@ -39,3 +43,4 @@ document.getElementById("clBt").addEventListener("click",
 
 //adicionar evento de atualização de pagina
 eng.routesEngine.whenUpdate(GetDadosUpdate())
+
