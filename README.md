@@ -14,7 +14,7 @@ Lavine is designed for gradual creation. Your install can by for 2 ways via CND 
 
 See documentation in topics :
 
-* [Tutorial] (<https://github.com>)
+* [Tutorial](https://github.com>)
 
 ## example
 
