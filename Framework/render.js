@@ -1,35 +1,40 @@
-class RenderEngine{
-    renderElementInPage=[]
-    registerPage =[]
+class RenderEngine {
+    renderElementInPage = []
+    registerPage = []
 
-    //Render object page
-    renderPage(renderElement,content,selectObjct){
-        let render = false
+    //unique render page
+    newrenderElement(renderElement, content, selectObjct, classList, Id) {
         let renderCreate = document.createElement(renderElement)
         let nodeContent = document.createTextNode(content)
         let register = 0
-        this.renderElementInPage.forEach(element => {
-            if(document.getElementById(element).id == document.getElementById(selectObjct).id){
-                render = true
-            }
-        })
-        while(this.renderElementInPage.length>register){
-            if(document.getElementById(this.renderElementInPage[register]).id == document.getElementById(selectObjct).id){
-                break
-            }
-            register+=1
+
+        register = parseInt(Math.random() * 10) + "id" + parseInt(Math.random() * 4)
+        if (classList != "") {
+            renderCreate.classList.add(classList)
         }
-        if(render == false){
-            register = parseInt(Math.random()*10)+"id"+parseInt(Math.random()*4)
+        if (Id != "") {
+            renderCreate.id = Id
+            this.registerPage.push(Id)
+        }
+        else {
             renderCreate.id = register
-            renderCreate.appendChild(nodeContent)
-            document.getElementById(selectObjct).appendChild(renderCreate)
-            this.renderElementInPage.push(selectObjct)
             this.registerPage.push(register)
         }
-        else{
-            document.getElementById(this.registerPage[register]).innerHTML = content
-        }
+        renderCreate.appendChild(nodeContent)
+        document.getElementById(selectObjct).appendChild(renderCreate)
+        this.renderElementInPage.push(selectObjct)
+    }
+
+    changeContentElement(Id,content){
+        let nodeContent = document.createTextNode(content)
+        document.getElementById(Id).innerHTML=""
+        document.getElementById(Id).appendChild(nodeContent)
+    }
+
+    //Set atribute
+    setRenderElementTribute(selectObjectId,atribute,value){
+        let select = document.getElementById(selectObjectId)
+        select.setAttribute(atribute,value)
     }
 }
 
