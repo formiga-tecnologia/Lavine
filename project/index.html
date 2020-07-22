@@ -3,19 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <title>Lavine Framework</title>
 </head>
 <body>
     <div id="app">
-    <a >Consulta de dados </a>
+    <a >Lavine Framework </a>
+    <nav id="dinamicMenu"></nav>
     <div id="dinamicType">
         <!--Aqui é inserido os objetos dinamicos -->
-        <h2 id="consultlist"></h2>
+        <div id="consultlist">
+            <div id="title"></div>
+            <div id="about"></div>
+        </div>
     </div>
     <button id="clBt">Consultar dados</button>
+    <button id="clBt2">Add dados</button>
     <br>
     </div>
     <script  src="../Framework/engine.js" type="module"></script>
+    <script src="js/frontRender.js" type="module"></script>
     <script src="js/index.js" type="module"></script>
 </body>
 </html>
