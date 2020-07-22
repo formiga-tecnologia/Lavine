@@ -6,7 +6,7 @@ let link=""
 function Api(data){
     fetch('https://jsonplaceholder.typicode.com/posts/'+data)
     .then(response => response.json())
-    .then(json => changeDom(json.title))
+    .then(json => eng.renderEngine.renderPage("div",json.title,"consultlist")) 
 
     fetch('https://jsonplaceholder.typicode.com/posts/'+data)
     .then(response => response.json())
@@ -33,9 +33,6 @@ function GetDados(){
     eng.routesEngine.getRouteVars()
     Api(count)
 }
-function changeDom(value){
-    document.getElementById("consultlist").innerHTML=value
-}
 
 //Click para atualizar a rota
 document.getElementById("clBt").addEventListener("click",
@@ -43,4 +40,3 @@ document.getElementById("clBt").addEventListener("click",
 
 //adicionar evento de atualização de pagina
 eng.routesEngine.whenUpdate(GetDadosUpdate())
-

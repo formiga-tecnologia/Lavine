@@ -1,6 +1,7 @@
 class RenderEngine{
     renderElementInPage=[]
     registerPage =[]
+
     //Render object page
     renderPage(renderElement,content,selectObjct){
         let render = false
