@@ -41,7 +41,7 @@ function GetDados() {
 //Click para atualizar a rota
 document.getElementById("clBt").addEventListener("click",
     function () { GetDados() }, false)
-
+document.getElementById("clBt2").addEventListener("click",function() {document.getElementById("menuNav").innerHTML = "Adoro" },false)
 //adicionar evento de atualização de pagina
  eng.routesEngine.whenUpdate(GetDadosUpdate())
 //render
