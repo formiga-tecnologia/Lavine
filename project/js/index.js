@@ -7,6 +7,8 @@ let link = ""
 //API
 function Api(data) {
 
+    //teste dos cards//
+    cards() //aqui renderiza o card 
     fetch('https://jsonplaceholder.typicode.com/posts/' + data)
         .then(response => response.json())
         .then(json => eng.renderEngine.changeContentElement("title", json.title))
