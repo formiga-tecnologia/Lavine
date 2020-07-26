@@ -38,6 +38,11 @@ class RenderEngine {
         let select = document.getElementById(selectObjectId)
         select.setAttribute(atribute,value)
     }
+    addStyle(selectObjectId,SetRulesArray){
+        SetRulesArray.forEach(element => {
+           document.getElementById(selectObjectId).classList+=element
+        });
+    }
 }
 
 export default RenderEngine
