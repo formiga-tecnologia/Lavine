@@ -6,7 +6,6 @@ let eng = new EngineApp()
 let count = 0
 let link = ""
 
-menu()
 
 //API
 function Api(data) {
@@ -60,9 +59,5 @@ function linkEvent(){
 
 //adicionar evento de atualização de pagina
 eng.routesEngine.whenUpdate(GetDadosUpdate())
-
 export default GetDados
-
-
-
 
