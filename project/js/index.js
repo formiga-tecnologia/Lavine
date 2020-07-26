@@ -1,9 +1,8 @@
 import EngineApp from '../../Framework/engine.js'
+import cards from './components/cards.js'
 let eng = new EngineApp()
 let count = 0
 let link = ""
-
-
 
 //API
 function Api(data) {
