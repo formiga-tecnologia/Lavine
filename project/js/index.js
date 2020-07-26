@@ -1,11 +1,12 @@
 import EngineApp from '../../Framework/engine.js'
 import cards from './components/cards.js'
 import welcomeguide from './components/welcomeGuide.js'
+import menu from './components/menu.js'
 let eng = new EngineApp()
 let count = 0
 let link = ""
 
-
+menu()
 
 //API
 function Api(data) {
@@ -57,20 +58,11 @@ function linkEvent(){
     eng.routesEngine.whenUpdate(GetDadosUpdate())
 }
 
+//adicionar evento de atualização de pagina
+eng.routesEngine.whenUpdate(GetDadosUpdate())
 
 export default GetDados
 
 
 
-//adicionar evento de atualização de pagina
-eng.routesEngine.whenUpdate(GetDadosUpdate())
-
-//render
-eng.renderEngine.newrenderElement("ul", "", "dinamicMenu", "nav", "menuNav")
-for (let a = 0; a < 4; a++) {
-    eng.renderEngine.newrenderElement("li", "", "menuNav", "nav-link", "el" + a)
-    eng.renderEngine.newrenderElement("a", "Content " + a + " Page", "el" + a, "nav-link", "idList" + a)
-    eng.renderEngine.setRenderElementTribute("idList" + a, "href", "#pages/page=4")
-
-}
 
