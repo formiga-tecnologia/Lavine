@@ -1,36 +1,48 @@
 import EngineApp from '../../Framework/engine.js'
+import cards from './components/cards.js'
+import welcomeguide from './components/welcomeGuide.js'
+import menu from './components/menu.js'
 let eng = new EngineApp()
 let count = 0
 let link = ""
 
 
-//Modify the API code//
 //API
 function Api(data) {
 
+    //teste dos cards//
+    
     fetch('https://jsonplaceholder.typicode.com/posts/' + data)
         .then(response => response.json())
-        .then(json => eng.renderEngine.changeContentElement("title", json.title))
+        .then(json => eng.renderEngine.changeContentElement("header0", json.title))
 
     fetch('https://jsonplaceholder.typicode.com/posts/' + data)
         .then(response => response.json())
-        .then(json => eng.renderEngine.changeContentElement("about", json.body))
+        .then(json => eng.renderEngine.changeContentElement("contentBody", json.body))
 }
 
 //Add rota
-eng.routesEngine.registerRoute("/page")
+eng.routesEngine.registerRoute("#pages/page")
 eng.routesEngine.registerRoute("/page/search?=")
+eng.routesEngine.registerRoute("http://127.0.0.1:5500/project/index.html")
 
 function GetDadosUpdate() {
-
-    eng.routesEngine.getRouteVars()
-    eng.routesEngine.goToLink(window.location.href)
-    if (eng.routesEngine.routeVars[5][eng.routesEngine.routeVars[5].length - 1] != 0) {
-        count = eng.routesEngine.routeVars[5][eng.routesEngine.routeVars[5].length - 1]
-        Api(count)
+    if(eng.routesEngine.routeIndex == "http://127.0.0.1:5500/project/index.html")
+    {
+        welcomeguide()
+        document.getElementById("clBtadd").addEventListener("click",linkEvent,false)
+    }
+    else{
+        cards() //aqui renderiza o card 
+        eng.routesEngine.getRouteVars()
+        eng.routesEngine.goToLink(window.location.href)
+        if (eng.routesEngine.routeVars[5][eng.routesEngine.routeVars[5].length - 1] != 0) {
+            count = eng.routesEngine.routeVars[5][eng.routesEngine.routeVars[5].length - 1]
+            Api(count)
+        }
     }
 }
-function GetDados() {
+function GetDados() { 
     count = parseInt(eng.routesEngine.routeVars[5][eng.routesEngine.routeVars[5].length - 1])
     count += 1
     eng.routesEngine.goToLink("http://127.0.0.1:5500/project/index.html#pages/page=" + count)
@@ -38,16 +50,14 @@ function GetDados() {
     Api(count)
 }
 
-//Click para atualizar a rota
-document.getElementById("clBt").addEventListener("click",
-    function () { GetDados() }, false)
-document.getElementById("clBt2").addEventListener("click",function() {document.getElementById("menuNav").innerHTML = "Adoro" },false)
-//adicionar evento de atualização de pagina
- eng.routesEngine.whenUpdate(GetDadosUpdate())
-//render
-eng.renderEngine.newrenderElement("ul", "", "dinamicMenu", "nav", "menuNav")
-for (let a = 0; a < 4; a++) {
-    eng.renderEngine.newrenderElement("li", "", "menuNav", "nav-link", "el" + a)
-    eng.renderEngine.newrenderElement("a", "Content " + a + " Page", "el" + a, "nav-link", "idList" + a)
-    eng.renderEngine.setRenderElementTribute("idList" + a, "href", "#pages/page=4")
+//addEventListeners event
+function linkEvent(){
+    eng.routesEngine.goToLink("http://127.0.0.1:5500/project/index.html#pages/page=1")
+    eng.renderEngine.removeRender("welcome-div")
+    eng.routesEngine.whenUpdate(GetDadosUpdate())
 }
+
+//adicionar evento de atualização de pagina
+eng.routesEngine.whenUpdate(GetDadosUpdate())
+export default GetDados
+

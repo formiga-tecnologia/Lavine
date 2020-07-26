@@ -1,4 +1,6 @@
 class RenderEngine {
+    //refazer todo o sistema de renderização 
+    //não esta sendo pratico usar o registro? pensar nessa possibilidade
     renderElementInPage = []
     registerPage = []
 
@@ -30,11 +32,18 @@ class RenderEngine {
         document.getElementById(Id).innerHTML=""
         document.getElementById(Id).appendChild(nodeContent)
     }
-
+    removeRender(element){
+        document.getElementById(element).remove()
+    }
     //Set atribute
     setRenderElementTribute(selectObjectId,atribute,value){
         let select = document.getElementById(selectObjectId)
         select.setAttribute(atribute,value)
+    }
+    addStyle(selectObjectId,SetRulesArray){
+        SetRulesArray.forEach(element => {
+           document.getElementById(selectObjectId).classList+=element
+        });
     }
 }
 
