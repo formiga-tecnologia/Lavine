@@ -32,7 +32,9 @@ class RenderEngine {
         document.getElementById(Id).innerHTML=""
         document.getElementById(Id).appendChild(nodeContent)
     }
-
+    removeRender(element){
+        document.getElementById(element).remove()
+    }
     //Set atribute
     setRenderElementTribute(selectObjectId,atribute,value){
         let select = document.getElementById(selectObjectId)
