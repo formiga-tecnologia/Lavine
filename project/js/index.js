@@ -22,7 +22,7 @@ eng.routesEngine.registerRoute("/page")
 eng.routesEngine.registerRoute("/page/search?=")
 
 function GetDadosUpdate() {
-
+    
     eng.routesEngine.getRouteVars()
     eng.routesEngine.goToLink(window.location.href)
     if (eng.routesEngine.routeVars[5][eng.routesEngine.routeVars[5].length - 1] != 0) {
@@ -41,9 +41,10 @@ function GetDados() {
 //Click para atualizar a rota
 document.getElementById("clBt").addEventListener("click",
     function () { GetDados() }, false)
-document.getElementById("clBt2").addEventListener("click",function() {document.getElementById("menuNav").innerHTML = "Adoro" },false)
+document.getElementById("clBt2").addEventListener("click",function() {document.getElementById("menuNav").innerHTML = document.getElementById("title").innerHTML },false)
 //adicionar evento de atualização de pagina
- eng.routesEngine.whenUpdate(GetDadosUpdate())
+eng.routesEngine.whenUpdate(GetDadosUpdate())
+
 //render
 eng.renderEngine.newrenderElement("ul", "", "dinamicMenu", "nav", "menuNav")
 for (let a = 0; a < 4; a++) {

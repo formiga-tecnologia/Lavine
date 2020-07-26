@@ -1,4 +1,6 @@
 class RenderEngine {
+    //refazer todo o sistema de renderização 
+    //não esta sendo pratico usar o registro? pensar nessa possibilidade
     renderElementInPage = []
     registerPage = []
 
