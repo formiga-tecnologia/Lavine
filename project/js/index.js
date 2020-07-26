@@ -5,6 +5,7 @@ let count = 0
 let link = ""
 
 cards() //aqui renderiza o card 
+
 //API
 function Api(data) {
 
@@ -20,16 +21,22 @@ function Api(data) {
 }
 
 //Add rota
-eng.routesEngine.registerRoute("/page")
+eng.routesEngine.registerRoute("#pages/page")
 eng.routesEngine.registerRoute("/page/search?=")
+eng.routesEngine.registerRoute("http://127.0.0.1:5500/project/")
 
 function GetDadosUpdate() {
-    
-    eng.routesEngine.getRouteVars()
-    eng.routesEngine.goToLink(window.location.href)
-    if (eng.routesEngine.routeVars[5][eng.routesEngine.routeVars[5].length - 1] != 0) {
-        count = eng.routesEngine.routeVars[5][eng.routesEngine.routeVars[5].length - 1]
-        Api(count)
+    if(eng.routesEngine.routeIndex == "http://127.0.0.1:5500/project/")
+    {
+        console.log("Index locate")
+    }
+    else{
+        eng.routesEngine.getRouteVars()
+        eng.routesEngine.goToLink(window.location.href)
+        if (eng.routesEngine.routeVars[5][eng.routesEngine.routeVars[5].length - 1] != 0) {
+            count = eng.routesEngine.routeVars[5][eng.routesEngine.routeVars[5].length - 1]
+            Api(count)
+        }
     }
 }
 function GetDados() {
