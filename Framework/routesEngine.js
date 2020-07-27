@@ -50,6 +50,9 @@ class routesEngine{
         this.listenersEvents[0]=eventClass
         window.addEventListener("load",()=>this.listenersEvents[0],false)
     }
+    whenChange(eventClass,object){
+        document.getElementById(object).addEventListener('change',eventClass,false)
+    }
 }
 
 export default routesEngine

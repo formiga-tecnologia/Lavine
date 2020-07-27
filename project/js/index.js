@@ -6,11 +6,10 @@ let eng = new EngineApp()
 let count = 0
 let link = ""
 
+menu() //Render Menu 
 
 //API
 function Api(data) {
-
-    //teste dos cards//
     
     fetch('https://jsonplaceholder.typicode.com/posts/' + data)
         .then(response => response.json())
