@@ -18,6 +18,8 @@ function menu(){
 
     render.newrenderElement("li","","listId1","nav-item","elementList3")
     render.newrenderElement("a","Ajuda","elementList3","nav-link","")
+    render.newrenderElement("input","","nav0","","searchGuide")
+    render.setRenderElementTribute("searchGuide","placeholder","Search Guide")
 
     //add css menu
     render.addStyle("nav0",estyles1)
@@ -25,5 +27,6 @@ function menu(){
 
     render.newrenderElement("br","","dinamicMenu","","")
 }
+
 
 export default menu

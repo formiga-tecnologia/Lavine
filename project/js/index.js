@@ -6,11 +6,10 @@ let eng = new EngineApp()
 let count = 0
 let link = ""
 
+menu() //Render Menu 
 
 //API
 function Api(data) {
-
-    //teste dos cards//
     
     fetch('https://jsonplaceholder.typicode.com/posts/' + data)
         .then(response => response.json())
@@ -45,6 +44,7 @@ function GetDadosUpdate() {
 function GetDados() { 
     count = parseInt(eng.routesEngine.routeVars[5][eng.routesEngine.routeVars[5].length - 1])
     count += 1
+    eng.renderEngine.changeContentElement("count1","Estamos no registro "+count)
     eng.routesEngine.goToLink("http://127.0.0.1:5500/project/index.html#pages/page=" + count)
     eng.routesEngine.getRouteVars()
     Api(count)
@@ -59,5 +59,21 @@ function linkEvent(){
 
 //adicionar evento de atualização de pagina
 eng.routesEngine.whenUpdate(GetDadosUpdate())
-export default GetDados
+
+document.getElementById("clBt").addEventListener("click",GetDados, false)
+//sistema de componentes//
+
+let comnp=[
+    "<br>"+
+    "<div id='lavine'>"+"ola aqui fica o conteudo"+ 
+    "</div>"+
+    "<ul>"+
+    "<li id='count1'> Estamos no registro "+count+"</li>"+
+    "<li>Pagina 1</li>"+
+    "<li>Conteudo dinamico</li>"+
+    "</ul>"
+]
+
+eng.componentsEngine.createComponent("teste",comnp)
+eng.componentsEngine.renderComponent("dinamicType","teste")
 
