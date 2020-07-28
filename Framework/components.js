@@ -4,8 +4,22 @@ class Components{
     componentsArray = []
     render = new RenderEngine
     createComponent(componentName,content){
-        this.componentsArray.push(componentName)
-        this.componentsArray.push(content)
+        let componentNames_bolean = false
+        for (let index = 0; index < this.componentsArray.length; index++) {
+            if(this.componentsArray[index] == componentName)
+            {
+                componentNames_bolean=true
+                break
+            }
+        }
+
+        if(componentNames_bolean==false){
+            this.componentsArray.push(componentName)
+            this.componentsArray.push(content)
+        }
+        else{
+            console.error( componentName+" it name is registred!")
+        }
     }
     renderComponent(targetRender,componentName){
         let component =""
