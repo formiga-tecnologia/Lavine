@@ -60,3 +60,7 @@ function linkEvent(){
 eng.routesEngine.whenUpdate(GetDadosUpdate())
 export default GetDados
 
+//sistema de componentes//
+eng.componentsEngine.createComponent("teste","<br> <h4>Lavine</h4>")
+eng.componentsEngine.renderComponent("dinamicType","teste")
+
