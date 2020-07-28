@@ -6,7 +6,7 @@ Framework Js for creation SPA aplication web, where no use server aplication (fo
 
 * **Call Functions:** Lavine is easy application framework Js , your base  is functions when each functions your create one type (see more types in documentation)
   
-## installation
+## Installation
 
 Lavine is designed for gradual creation. Your install can by for 2 ways via CND or Download we framework in your project.
 
@@ -16,6 +16,15 @@ See documentation in topics :
 
 * [Tutorial](https://github.com>)
 
-## example
+## Example
 
 If your can learn Lavine Js and dont have ionstall in youru project now, use CDN and see its example base:
+
+## Class of Lavine V0.1
+
+The Lavine have 3 big classes:
+
+* Components.js
+* Engine.js
+* Render.js
+* RoutesEngine.js
