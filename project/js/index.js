@@ -58,9 +58,21 @@ function linkEvent(){
 
 //adicionar evento de atualização de pagina
 eng.routesEngine.whenUpdate(GetDadosUpdate())
-export default GetDados
 
+document.getElementById("clBt").addEventListener("click",GetDados, false)
 //sistema de componentes//
-eng.componentsEngine.createComponent("teste","<br> <h4>Lavine</h4>")
+
+let comnp=[
+    "<div id='lavine'>"+"ola aqui fica o conteudo"+ 
+    "</div>"+
+    "<ul>"+
+    "<li>"+count+"</li>"+
+    "<li>Aqui fica a lista2</li>"+
+    "<li>Aqui fica a lista3</li>"+
+    "</ul>"
+]
+
+
+eng.componentsEngine.createComponent("teste",comnp)
 eng.componentsEngine.renderComponent("dinamicType","teste")
 
