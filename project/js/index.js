@@ -60,10 +60,7 @@ function linkEvent(){
 //adicionar evento de atualização de pagina
 eng.routesEngine.whenUpdate(GetDadosUpdate())
 
-
-document.getElementById("clBt").addEventListener("click",GetDados, false)
 //sistema de componentes//
-
 let comnp=[
     "<br>"+
     "<div id='lavine'>"+"ola aqui fica o conteudo"+ 
@@ -78,15 +75,12 @@ let comnp=[
 eng.componentsEngine.createComponent("teste",comnp)
 eng.componentsEngine.renderComponent("dinamicType","teste")
 
+//addListenersUpdate 
 function addListenerUpdate(){
-    eng.componentsEngine.addListener("header0","click",teste)
     eng.componentsEngine.addListener("clBtadd","click",linkEvent)
-    window.addEventListener("popstate",teste)
+    eng.componentsEngine.addListener("clBt","click",GetDados)
 }
-
-function teste(){
-    console.log("so para testar")
-}
+//When update Add listener
 eng.routesEngine.whenUpdate(addListenerUpdate())
-eng.routesEngine.whenChangeRoute(teste)
+
 
