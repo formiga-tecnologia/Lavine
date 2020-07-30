@@ -1,4 +1,5 @@
 class routesEngine{
+    //vars Routes
     routeIndex=window.location.href
     routeLine = ""
     routeVars = []
