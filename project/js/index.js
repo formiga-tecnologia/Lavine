@@ -29,7 +29,6 @@ function GetDadosUpdate() {
     if(eng.routesEngine.routeIndex == "http://127.0.0.1:5500/project/index.html")
     {
         welcomeguide()
-        document.getElementById("clBtadd").addEventListener("click",linkEvent,false)
     }
     else{
         cards() //aqui renderiza o card 
@@ -55,14 +54,13 @@ function linkEvent(){
     eng.routesEngine.goToLink("http://127.0.0.1:5500/project/index.html#pages/page=1")
     eng.renderEngine.removeRender("welcome-div")
     eng.routesEngine.whenUpdate(GetDadosUpdate())
+
 }
 
 //adicionar evento de atualização de pagina
 eng.routesEngine.whenUpdate(GetDadosUpdate())
 
-document.getElementById("clBt").addEventListener("click",GetDados, false)
 //sistema de componentes//
-
 let comnp=[
     "<br>"+
     "<div id='lavine'>"+"ola aqui fica o conteudo"+ 
@@ -76,4 +74,13 @@ let comnp=[
 
 eng.componentsEngine.createComponent("teste",comnp)
 eng.componentsEngine.renderComponent("dinamicType","teste")
+
+//addListenersUpdate 
+function addListenerUpdate(){
+    eng.componentsEngine.addListener("clBtadd","click",linkEvent)
+    eng.componentsEngine.addListener("clBt","click",GetDados)
+}
+//When update Add listener
+eng.routesEngine.whenUpdate(addListenerUpdate())
+
 

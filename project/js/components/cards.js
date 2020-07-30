@@ -1,14 +1,19 @@
-import RenderEngine from '../../../Framework/render.js'
+import EngineApp from '../../../Framework/engine.js'
 
-
-var render = new RenderEngine()
-
+//render obj
+var compRender = new EngineApp()
+var comp = [
+    "<div id='card0'>"+"<br>"+
+    "<div id='header0' class='card-header'></div>"+
+    "<div id='card1' class='card-body'>"+
+    "<p id='contentBody'></p>"+
+    "<br> <button id='clBt'>Consultar Dados</button> "
+    +"</div"
+]
 //renderização de objeto tipo 'card'
 function cards(){
-    render.newrenderElement("div","","dinamicType","card","card0")
-    render.newrenderElement("div","","card0","card-header","header0")
-    render.newrenderElement("div","","card0","card-body","card1")
-    render.newrenderElement("p","","card1","","contentBody")
+    compRender.componentsEngine.createComponent("card",comp)
+    compRender.componentsEngine.renderComponent("dinamicType","card")
 }
 
 export default cards
