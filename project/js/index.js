@@ -54,6 +54,7 @@ function linkEvent(){
     eng.routesEngine.goToLink("http://127.0.0.1:5500/project/index.html#pages/page=1")
     eng.renderEngine.removeRender("welcome-div")
     eng.routesEngine.whenUpdate(GetDadosUpdate())
+
 }
 
 //adicionar evento de atualização de pagina
@@ -78,12 +79,14 @@ eng.componentsEngine.createComponent("teste",comnp)
 eng.componentsEngine.renderComponent("dinamicType","teste")
 
 function addListenerUpdate(){
-    console.log("gwello")
     eng.componentsEngine.addListener("header0","click",teste)
     eng.componentsEngine.addListener("clBtadd","click",linkEvent)
+    window.addEventListener("popstate",teste)
 }
 
 function teste(){
     console.log("so para testar")
 }
 eng.routesEngine.whenUpdate(addListenerUpdate())
+eng.routesEngine.whenChangeRoute(teste)
+

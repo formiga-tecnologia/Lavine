@@ -3,7 +3,7 @@ class routesEngine{
     routeLine = ""
     routeVars = []
     routePath = []
-    listenersEvents = [0]
+    listenersEvents = [0,1]
     //Define Routes
     goToLink(link){
         let verifyRoute=false
@@ -52,6 +52,10 @@ class routesEngine{
     }
     whenChange(eventClass,object){
         document.getElementById(object).addEventListener('change',eventClass,false)
+    }
+    whenChangeRoute(eventClass){
+        this.listenersEvents[1]=eventClass
+        window.addEventListener("popstate",this.listenersEvents[1])
     }
 }
 
