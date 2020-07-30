@@ -31,6 +31,11 @@ class Components{
         }
         this.render.renderHtml(targetRender,component)
     }
+    addListener(targetElement,type,functionCall){
+        if(document.getElementById(targetElement)!=null){
+            document.getElementById(targetElement).addEventListener(type,functionCall,false)
+        }
+    }
 }
 
 export default Components

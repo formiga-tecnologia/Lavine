@@ -29,7 +29,6 @@ function GetDadosUpdate() {
     if(eng.routesEngine.routeIndex == "http://127.0.0.1:5500/project/index.html")
     {
         welcomeguide()
-        document.getElementById("clBtadd").addEventListener("click",linkEvent,false)
     }
     else{
         cards() //aqui renderiza o card 
@@ -60,6 +59,7 @@ function linkEvent(){
 //adicionar evento de atualização de pagina
 eng.routesEngine.whenUpdate(GetDadosUpdate())
 
+
 document.getElementById("clBt").addEventListener("click",GetDados, false)
 //sistema de componentes//
 
@@ -77,3 +77,13 @@ let comnp=[
 eng.componentsEngine.createComponent("teste",comnp)
 eng.componentsEngine.renderComponent("dinamicType","teste")
 
+function addListenerUpdate(){
+    console.log("gwello")
+    eng.componentsEngine.addListener("header0","click",teste)
+    eng.componentsEngine.addListener("clBtadd","click",linkEvent)
+}
+
+function teste(){
+    console.log("so para testar")
+}
+eng.routesEngine.whenUpdate(addListenerUpdate())
