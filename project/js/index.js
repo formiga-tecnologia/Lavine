@@ -88,6 +88,7 @@ function teste(){
     console.log("teste")
 }
 
+//estrutura asicrona para utilizar em RoutesEngine.js
 function addEventsAwaitsSync(){
     resolverFunction(10)
     console.log("vai vendo")
