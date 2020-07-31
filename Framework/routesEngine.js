@@ -57,6 +57,15 @@ class routesEngine{
         this.listenersEvents[1]=eventClass
         window.addEventListener("popstate",this.listenersEvents[1])
     }
+    //async functions 
+    whenAwaitPage(eventclas){
+        return new Promise(()=>{
+            setTimeout(()=>{eventclas()},4000)
+        }).then(this.whenAwaitPage(eventclas))
+    }
+    async WhenAwait(event){
+        event()
+    }
 }
 
 export default routesEngine
