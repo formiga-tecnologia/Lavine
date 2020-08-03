@@ -4,6 +4,7 @@ class routesEngine{
     routeVars = []
     routePath = []
     listenersEvents = [0,1]
+    listenerAwaitEvents=""
     //Define Routes
     goToLink(link){
         let verifyRoute=false
@@ -58,13 +59,20 @@ class routesEngine{
         window.addEventListener("popstate",this.listenersEvents[1])
     }
     //async functions 
-    whenAwaitPage(eventclas){
-        return new Promise(()=>{
-            setTimeout(()=>{eventclas()},4000)
-        }).then(this.whenAwaitPage(eventclas))
+    addEventSync(){
+       this.resolveAwait() 
+       //function here V
+       this.listenerAwaitEvents()
     }
-    async WhenAwait(event){
-        event()
+    resolveAwait(){
+        return new Promise(() => {
+            setTimeout(() =>{this.addEventSync()},2000)
+        })
+    }
+    async  whenAwait(eventClass){
+        let functionType = eventClass
+        this.listenerAwaitEvents = functionType
+        let functionA = this.resolveAwait()
     }
 }
 

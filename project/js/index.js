@@ -89,21 +89,7 @@ function teste(){
 }
 
 //estrutura asicrona para utilizar em RoutesEngine.js
-function addEventsAwaitsSync(){
-    resolverFunction(10)
-    console.log("vai vendo")
-}
-function resolverFunction(x){
-    return new Promise(resolve => {
-        setTimeout(()=>{addEventsAwaitsSync()},2000)
-    })
-}
-async function addcionar(x){
-    var a = resolverFunction(40)
-    return console.log(x+ await a )
-}
-
-addcionar(10).then(v=>{console.log(v)})
+eng.routesEngine.whenAwait(teste)
 
 
 
