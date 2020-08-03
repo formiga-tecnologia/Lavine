@@ -4,6 +4,7 @@ class routesEngine{
     routeLine = ""
     routeVars = []
     routePath = []
+    routeComp = []
     listenersEvents = [0,1]
     listenerAwaitEvents=""
     //Define Routes
@@ -18,6 +19,12 @@ class routesEngine{
             }
         });
         if(verifyRoute==true){
+            for(let indexComp=0;indexComp<this.routePath.length;indexComp+=1)
+            {
+                if(this.routePath[indexComp].includes(link)){
+                    console.log(this.routeComp[indexComp])
+                }
+            }
             history.pushState(link,link)
             this.routeIndex=link
             window.location.href=link
@@ -44,8 +51,10 @@ class routesEngine{
         }
         this.routeVars.push(varB)
     }
-    registerRoute(routePathRegister){
+    registerRoute(routePathRegister,compEvent){
         this.routePath.push(routePathRegister)
+        this.routeComp.push(compEvent)
+
     }
     //When executes update event in page
     whenUpdate(eventClass){
@@ -59,10 +68,9 @@ class routesEngine{
         this.listenersEvents[1]=eventClass
         window.addEventListener("popstate",this.listenersEvents[1])
     }
-    //async functions 
+
     addEventSync(){
        this.resolveAwait() 
-       //function here V
        this.listenerAwaitEvents()
     }
     resolveAwait(){
