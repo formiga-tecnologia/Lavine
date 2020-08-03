@@ -15,7 +15,7 @@ class Security{
                 console.clear()
                 console.warn("Your data exist one error of security, ["+ element +" ], its data is apply in log check for security" )
                 this.reportLog.push(element+ " < its input is incorrect, exists error or malware code.")
-                if(routesEngine == true){
+                if(this.routeRegister == true){
                     this.routeSecurity.goToLink(this.routeSecurity.routePath[0])
                 }
             }
