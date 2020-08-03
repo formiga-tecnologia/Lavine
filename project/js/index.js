@@ -22,11 +22,16 @@ function Api(data) {
 }
 
 //Add rota
-eng.routesEngine.registerRoute("#pages/page")
-eng.routesEngine.registerRoute("/page/search?=")
-eng.routesEngine.registerRoute("http://127.0.0.1:5500/project/index.html")
+eng.routesEngine.registerRoute("http://127.0.0.1:5500/project/","Inicio")
+eng.routesEngine.registerRoute("http://127.0.0.1:5500/project/index.html","IndexPage")
+
+
 
 function GetDadosUpdate() {
+    if(eng.routesEngine.routeIndex == "http://127.0.0.1:5500/project/"){
+        eng.routesEngine.goToLink(window.location.href+"index.html#index/a")
+        welcomeguide()
+    }
     if(eng.routesEngine.routeIndex == "http://127.0.0.1:5500/project/index.html")
     {
         welcomeguide()
@@ -34,15 +39,17 @@ function GetDadosUpdate() {
     if(eng.routesEngine.routeIndex =="http://127.0.0.1:5500/project/index.html#pages/error"){
         error()
     }
-    else{
-        cards() //aqui renderiza o card 
-        eng.routesEngine.getRouteVars()
-        eng.routesEngine.goToLink(window.location.href)
-        if (eng.routesEngine.routeVars[5][eng.routesEngine.routeVars[5].length - 1] != 0) {
-            count = eng.routesEngine.routeVars[5][eng.routesEngine.routeVars[5].length - 1]
-            Api(count)
-        }
-    }
+    
+   //**  else{
+        //cards() //aqui renderiza o card 
+        //eng.routesEngine.getRouteVars()
+        //eng.routesEngine.goToLink(window.location.href)
+        //if (eng.routesEngine.routeVars[5][eng.routesEngine.routeVars[5].length - 1] != 0) {
+        //    count = eng.routesEngine.routeVars[5][eng.routesEngine.routeVars[5].length - 1]
+      //      Api(count)
+    //    }
+  //  }
+    
 }
 function GetDados() { 
     count = parseInt(eng.routesEngine.routeVars[5][eng.routesEngine.routeVars[5].length - 1])
@@ -60,9 +67,6 @@ function linkEvent(){
     eng.routesEngine.whenUpdate(GetDadosUpdate())
 
 }
-
-//adicionar evento de atualização de pagina
-eng.routesEngine.whenUpdate(GetDadosUpdate())
 
 //sistema de componentes//
 let comnp=[
@@ -86,11 +90,15 @@ function addListenerUpdate(){
 }
 //When update Add listener
 eng.routesEngine.whenUpdate(addListenerUpdate())
+eng.routesEngine.whenUpdate(GetDadosUpdate())
 
 //when async  event
 function VerifyRoute(){
    if(count>4){
        console.log("Estamos um  nivel acima")
+   }
+   if(count>9){
+    eng.Security.verifyRule("<div>")
    }
 }
 //estrutura asicrona para utilizar em RoutesEngine.js
@@ -99,4 +107,4 @@ eng.routesEngine.whenAwait(VerifyRoute)
 //teste de segurança
 eng.Security.AddSecurityRule("<div>","Html elements in inputs")
 eng.Security.redirectRouteSecurity("http://127.0.0.1:5500/project/index.html#pages/error")
-eng.Security.verifyRule("<div>")
+

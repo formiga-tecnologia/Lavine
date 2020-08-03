@@ -10,7 +10,6 @@ class Security{
     }
     verifyRule(DataVerify){
         this.securityRules.forEach(element => {
-            //rules
             if(DataVerify.includes(element)){
                 console.clear()
                 console.warn("Your data exist one error of security, ["+ element +" ], its data is apply in log check for security" )
