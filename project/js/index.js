@@ -2,6 +2,7 @@ import EngineApp from '../../Framework/engine.js'
 import cards from './components/cards.js'
 import welcomeguide from './components/welcomeGuide.js'
 import menu from './components/menu.js'
+import error from './components/error.js'
 let eng = new EngineApp()
 let count = 0
 let link = ""
@@ -29,6 +30,9 @@ function GetDadosUpdate() {
     if(eng.routesEngine.routeIndex == "http://127.0.0.1:5500/project/index.html")
     {
         welcomeguide()
+    }
+    if(eng.routesEngine.routeIndex =="http://127.0.0.1:5500/project/index.html#pages/error"){
+        error()
     }
     else{
         cards() //aqui renderiza o card 
@@ -83,4 +87,16 @@ function addListenerUpdate(){
 //When update Add listener
 eng.routesEngine.whenUpdate(addListenerUpdate())
 
+//when async  event
+function VerifyRoute(){
+   if(count>4){
+       console.log("Estamos um  nivel acima")
+   }
+}
+//estrutura asicrona para utilizar em RoutesEngine.js
+eng.routesEngine.whenAwait(VerifyRoute)
 
+//teste de segurança
+eng.Security.AddSecurityRule("<div>","Html elements in inputs")
+eng.Security.redirectRouteSecurity("http://127.0.0.1:5500/project/index.html#pages/error")
+eng.Security.verifyRule("<div>")
