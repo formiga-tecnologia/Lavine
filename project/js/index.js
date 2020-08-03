@@ -84,12 +84,14 @@ function addListenerUpdate(){
 eng.routesEngine.whenUpdate(addListenerUpdate())
 
 //when async  event
-function teste(){
-    console.log("teste")
+function VerifyRoute(){
+   if(count>4){
+       console.log("Estamos um  nivel acima")
+   }
 }
 
 //estrutura asicrona para utilizar em RoutesEngine.js
-eng.routesEngine.whenAwait(teste)
+eng.routesEngine.whenAwait(VerifyRoute)
 
 
 
