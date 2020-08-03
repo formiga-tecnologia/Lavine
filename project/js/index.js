@@ -93,7 +93,8 @@ function VerifyRoute(){
 eng.routesEngine.whenAwait(VerifyRoute)
 
 //teste de segurança
-eng.Security.AddSecurityRule("<div>")
+eng.Security.AddSecurityRule("<div>","Html elements in inputs")
+eng.Security.verifyRule("<div>")
 
 
 
