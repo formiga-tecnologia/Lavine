@@ -89,9 +89,11 @@ function VerifyRoute(){
        console.log("Estamos um  nivel acima")
    }
 }
-
 //estrutura asicrona para utilizar em RoutesEngine.js
 eng.routesEngine.whenAwait(VerifyRoute)
+
+//teste de segurança
+eng.Security.AddSecurityRule("<div>")
 
 
 

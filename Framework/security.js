@@ -8,6 +8,11 @@ class Security{
     verifyRule(DataVerify){
         this.securityRules.forEach(element => {
             //rules
+            if(DataVerify.includes(element)){
+                console.log("regra vefificada")
+            }
         });
     }
 }
+
+export default Security
