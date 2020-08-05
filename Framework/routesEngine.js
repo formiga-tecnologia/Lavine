@@ -51,8 +51,8 @@ class routesEngine {
                     countRoutesValid=-2
                 }
             }
-            if(countRoutesValid == routeStr.length){
-                console.log("foi")
+            if(countRoutesValid == routeStr.length && this.routeVars.length == routeStr.length){
+                console.log("foi"+routeStr.length)
                 FindRoute =element
                 console.log(element)
             }
