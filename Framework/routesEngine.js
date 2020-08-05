@@ -43,6 +43,7 @@ class routesEngine {
         for (let IndexRoute = 0; IndexRoute < this.routeVars.length; IndexRoute++) {
             if (route.includes(this.routePath[IndexRoute])) {
                 for(let IndexPathArray=0;IndexPathArray<Routehref.length;IndexPathArray++){
+                    console.log(Routehref[IndexPathArray] +" || "+ this.routeVars[IndexPathArray])
                     if(Routehref[IndexPathArray].includes(this.routeVars[IndexPathArray])){
                         routesCount++   
                     }
