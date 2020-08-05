@@ -4,7 +4,6 @@ import Components from './components.js'
 import Security from './security.js'
 class EngineApp{
     count=0
-    //Define routes
     routesEngine = new routesEngine
     renderEngine = new RenderEngine
     componentsEngine = new Components
