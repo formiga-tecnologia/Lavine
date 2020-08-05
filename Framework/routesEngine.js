@@ -37,23 +37,30 @@ class routesEngine {
     getUpdateRoutes(route) {
         let Routehref = []
         let routesCount=0
+        let CountVarRoute=[]
         this.getRouteVars()
         Routehref = this.getRoutesOutside(route)
-        console.log(this.routePath)
-        for (let IndexRoute = 0; IndexRoute < this.routePath.length; IndexRoute++) {
+        for (let IndexRoute = 0; IndexRoute < this.routeVars.length; IndexRoute++) {
             if (route.includes(this.routePath[IndexRoute])) {
                 for(let IndexPathArray=0;IndexPathArray<Routehref.length;IndexPathArray++){
                     if(Routehref[IndexPathArray].includes(this.routeVars[IndexPathArray])){
-                        routesCount++
+                        routesCount++   
+                    }
+                    else{
+                        routesCount-=1
                     }
                 }
             }
-            console.log(""+this.routePath.length+" /"+ routesCount)
-            if(routesCount == this.routePath[IndexRoute]){
-                console.log("foi")
-            }
-            else{
-                console.log("invalido")
+            if(this.routePath.length>IndexRoute){
+                CountVarRoute =this.getRoutesOutside(this.routePath[IndexRoute])
+                console.log(""+CountVarRoute.length+" /"+ routesCount)
+                if(routesCount == CountVarRoute.length){
+                    console.log("foi")
+                    break
+                }
+                else{
+                    console.log("invalido")
+                }
             }
             routesCount=0
         }
