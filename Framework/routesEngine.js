@@ -42,21 +42,6 @@ class routesEngine {
             if (route.includes(this.routePath[IndexRoute])) {
                 this.getRouteVars()
                 Routehref = this.getRoutesOutside(route)
-                for (let indexHref = 0; indexHref < Routehref.length; indexHref++) {
-                    if(Routehref[indexHref].includes(this.routeVars[indexHref]))
-                    {
-                        routesCount++
-                    }
-                }
-                console.log(routesCount+" "+this.routeVars[IndexRoute].length)
-                if(routesCount==this.routeVars[IndexRoute].length){
-                    linkValid==true
-                }
-                if(linkValid==true){
-                    console.log("valido")
-                    break
-                }
-                routesCount=0
             }
         }
     }
