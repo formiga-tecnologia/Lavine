@@ -34,37 +34,30 @@ class routesEngine {
         }
     }
 
-    getUpdateRoutes(route) {
-        let Routehref = []
-        let routesCount=0
-        let CountVarRoute=[]
+    getUpdateRoutes() {
+        let routeStr=[]
+        let countRoutesValid=0
+        let FindRoute=""
+        //verify exact route
         this.getRouteVars()
-        Routehref = this.getRoutesOutside(route)
-        for (let IndexRoute = 0; IndexRoute < this.routeVars.length; IndexRoute++) {
-            if (route.includes(this.routePath[IndexRoute])) {
-                for(let IndexPathArray=0;IndexPathArray<Routehref.length;IndexPathArray++){
-                    console.log(Routehref[IndexPathArray] +" || "+ this.routeVars[IndexPathArray])
-                    if(Routehref[IndexPathArray].includes(this.routeVars[IndexPathArray])){
-                        routesCount++   
-                    }
-                    else{
-                        routesCount-=1
-                    }
-                }
-            }
-            if(this.routePath.length>IndexRoute){
-                CountVarRoute =this.getRoutesOutside(this.routePath[IndexRoute])
-                console.log(""+CountVarRoute.length+" /"+ routesCount)
-                if(routesCount == CountVarRoute.length){
-                    console.log("foi")
-                    break
+        this.routePath.forEach(element => {
+            //collect vars outside 
+            routeStr=this.getRoutesOutside(element)
+            for(let indexVars=0;indexVars<routeStr.length;indexVars++){
+                if(routeStr[indexVars].includes(this.routeVars[indexVars])){
+                    countRoutesValid++
                 }
                 else{
-                    console.log("invalido")
+                    countRoutesValid=-2
                 }
             }
-            routesCount=0
-        }
+            if(countRoutesValid == routeStr.length){
+                console.log("foi")
+                FindRoute =element
+                console.log(element)
+            }
+            countRoutesValid=0
+        });
     }
 
     getRouteVars() {
@@ -73,6 +66,7 @@ class routesEngine {
         let varA = this.routeIndex
         let varB = ""
         for (let index = 0; index < countVars; index++) {
+            //include especific vars for search
             if (varA[index] != '/') {
                 varB += varA[index]
             }
