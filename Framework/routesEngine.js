@@ -10,6 +10,8 @@ class routesEngine {
     goToLink(link) {
         let verifyRoute = false
         //Verify if route is exist in context
+        //Add verificação exata do componente, para executar ou rederizar a rota
+        //correta dentro do contexto
         this.routePath.forEach(element => {
             if (link.includes(element)) {
                 this.getRouteVars()
@@ -52,9 +54,8 @@ class routesEngine {
                 }
             }
             if(countRoutesValid == routeStr.length && this.routeVars.length == routeStr.length){
-                console.log("foi"+routeStr.length)
-                FindRoute =element
-                console.log(element)
+                FindRoute=element
+                this.goToLink(FindRoute)
             }
             countRoutesValid=0
         });

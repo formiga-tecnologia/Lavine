@@ -23,15 +23,13 @@ function Api(data) {
 
 //Add rota
 eng.routesEngine.registerRoute("http://127.0.0.1:5500/project","ola")
-eng.routesEngine.registerRoute("http://127.0.0.1:5500/project/index.html","ola")
+eng.routesEngine.registerRoute("http://127.0.0.1:5500/project/index.html","Pagina inicial")
 eng.routesEngine.registerRoute("http://127.0.0.1:5500/project/index.html#pages/docs","ola")
 
 
 function GetDadosUpdate() {
     if(eng.routesEngine.routeIndex == "http://127.0.0.1:5500/project/"){
         welcomeguide()
-        eng.routesEngine.getRouteVars()
-        console.log(eng.routesEngine.routeVars)
     }
     if(eng.routesEngine.routeIndex == "http://127.0.0.1:5500/project/index.html")
     {
@@ -90,8 +88,8 @@ function addListenerUpdate(){
     eng.componentsEngine.addListener("clBt","click",GetDados)
 }
 //When update Add listener
-eng.routesEngine.whenUpdate(addListenerUpdate())
-eng.routesEngine.whenUpdate(GetDadosUpdate())
+//eng.routesEngine.whenUpdate(addListenerUpdate())
+//eng.routesEngine.whenUpdate(GetDadosUpdate())
 
 //when async  event
 function VerifyRoute(){
@@ -103,7 +101,7 @@ function VerifyRoute(){
    }
 }
 //estrutura asicrona para utilizar em RoutesEngine.js
-eng.routesEngine.whenAwait(VerifyRoute)
+//eng.routesEngine.whenAwait(VerifyRoute)
 
 //teste de segurança
 eng.Security.AddSecurityRule("<div>","Html elements in inputs")
