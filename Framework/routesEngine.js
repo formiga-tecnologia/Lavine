@@ -1,83 +1,127 @@
-class routesEngine{
-    routeIndex=window.location.href
+class routesEngine {
+    routeIndex = window.location.href
     routeLine = ""
     routeVars = []
     routePath = []
     routeComp = []
-    listenersEvents = [0,1]
-    listenerAwaitEvents=""
+    listenersEvents = [0, 1]
+    listenerAwaitEvents = ""
     //Define Routes
-    goToLink(link){
-        let verifyRoute=false
+    goToLink(link) {
+        let verifyRoute = false
         //Verify if route is exist in context
         this.routePath.forEach(element => {
-            if(link.includes(element)){
+            if (link.includes(element)) {
                 this.getRouteVars()
                 this.routeLine = this.routeVars[this.routeVars.length]
-                verifyRoute=true
+                verifyRoute = true
             }
         });
-        if(verifyRoute==true){
-            for(let indexComp=0;indexComp<this.routePath.length;indexComp+=1)
-            {
-                if(this.routePath[indexComp].includes(link)){
+        if (verifyRoute == true) {
+            for (let indexComp = 0; indexComp < this.routePath.length; indexComp += 1) {
+                if (this.routePath[indexComp].includes(link)) {
                     console.log(this.routeComp[indexComp])
                 }
             }
-            history.pushState(link,link)
-            this.routeIndex=link
-            window.location.href=link
+            if (window.location.href != link) {
+                history.pushState(link, link)
+                this.routeIndex = link
+                window.location.href = link
+            }
         }
-        else{
-            document.getElementById("app").innerText="404 route dont found"
+        else {
+            document.getElementById("app").innerText = "404 route dont found"
         }
     }
-    //Get vars Routes for pass for own vars
-    getRouteVars(){
-        this.routeVars=[]
-        let countVars =  this.routeIndex.length
-        let varA =  this.routeIndex
-        let varB =  ""
+
+    getUpdateRoutes(route) {
+        let Routehref = []
+        let routesCount=0
+        let linkValid=false
+        for (let IndexRoute = 0; IndexRoute < this.routePath.length; IndexRoute++) {
+            if (route.includes(this.routePath[IndexRoute])) {
+                this.getRouteVars()
+                Routehref = this.getRoutesOutside(route)
+                for (let indexHref = 0; indexHref < Routehref.length; indexHref++) {
+                    if(Routehref[indexHref].includes(this.routeVars[indexHref]))
+                    {
+                        routesCount++
+                    }
+                }
+                console.log(routesCount+" "+this.routeVars[IndexRoute].length)
+                if(routesCount==this.routeVars[IndexRoute].length){
+                    linkValid==true
+                }
+                if(linkValid==true){
+                    console.log("valido")
+                    break
+                }
+                routesCount=0
+            }
+        }
+    }
+
+    getRouteVars() {
+        this.routeVars = []
+        let countVars = this.routeIndex.length
+        let varA = this.routeIndex
+        let varB = ""
         for (let index = 0; index < countVars; index++) {
-           if(varA[index]!='/')
-           {
-               varB+=varA[index]
-           }
-           else{
-               this.routeVars.push(varB)
-               varB=""
-           }
+            if (varA[index] != '/') {
+                varB += varA[index]
+            }
+            else {
+                this.routeVars.push(varB)
+                varB = ""
+            }
         }
         this.routeVars.push(varB)
     }
-    registerRoute(routePathRegister,compEvent){
+    getRoutesOutside(routetarget) {
+        let TargetRouteVars = []
+        let countVars = routetarget.length
+        let varA = routetarget
+        let varB = ""
+        for (let index = 0; index < countVars; index++) {
+            if (varA[index] != '/') {
+                varB += varA[index]
+            }
+            else {
+                TargetRouteVars.push(varB)
+                varB = ""
+            }
+        }
+        TargetRouteVars.push(varB)
+        return TargetRouteVars
+    }
+    registerRoute(routePathRegister, compEvent) {
         this.routePath.push(routePathRegister)
         this.routeComp.push(compEvent)
 
     }
     //When executes update event in page
-    whenUpdate(eventClass){
-        this.listenersEvents[0]=eventClass
-        window.addEventListener("load",()=>this.listenersEvents[0],false)
+    whenUpdate(eventClass) {
+        this.listenersEvents[0] = eventClass
+        window.addEventListener("load", () => this.listenersEvents[0], false)
     }
-    whenChange(eventClass,object){
-        document.getElementById(object).addEventListener('change',eventClass,false)
+    whenChange(eventClass, object) {
+        document.getElementById(object).addEventListener('change', eventClass, false)
     }
-    whenChangeRoute(eventClass){
-        this.listenersEvents[1]=eventClass
-        window.addEventListener("popstate",this.listenersEvents[1])
+    whenChangeRoute(eventClass) {
+        this.listenersEvents[1] = eventClass
+        window.addEventListener("popstate", this.listenersEvents[1])
     }
 
-    addEventSync(){
-       this.resolveAwait() 
-       this.listenerAwaitEvents()
+    addEventSync() {
+        this.resolveAwait()
+        this.listenerAwaitEvents()
     }
-    resolveAwait(){
+    resolveAwait() {
         return new Promise(() => {
-            setTimeout(() =>{this.addEventSync()},2000)
+            setTimeout(() => { this.addEventSync() }, 2000)
         })
     }
-    async  whenAwait(eventClass){
+    async whenAwait(eventClass) {
         let functionType = eventClass
         this.listenerAwaitEvents = functionType
         let functionA = this.resolveAwait()

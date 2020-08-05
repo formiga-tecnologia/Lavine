@@ -22,15 +22,15 @@ function Api(data) {
 }
 
 //Add rota
-eng.routesEngine.registerRoute("http://127.0.0.1:5500/project/","Inicio")
-eng.routesEngine.registerRoute("http://127.0.0.1:5500/project/index.html","IndexPage")
-
+eng.routesEngine.registerRoute("http://127.0.0.1:5500/project/","ola")
+eng.routesEngine.registerRoute("http://127.0.0.1:5500/project/index.html","ola")
 
 
 function GetDadosUpdate() {
     if(eng.routesEngine.routeIndex == "http://127.0.0.1:5500/project/"){
-        eng.routesEngine.goToLink(window.location.href+"index.html#index/a")
         welcomeguide()
+        eng.routesEngine.getRouteVars()
+        console.log(eng.routesEngine.routeVars)
     }
     if(eng.routesEngine.routeIndex == "http://127.0.0.1:5500/project/index.html")
     {
@@ -108,3 +108,5 @@ eng.routesEngine.whenAwait(VerifyRoute)
 eng.Security.AddSecurityRule("<div>","Html elements in inputs")
 eng.Security.redirectRouteSecurity("http://127.0.0.1:5500/project/index.html#pages/error")
 
+
+eng.routesEngine.getUpdateRoutes("http://127.0.0.1:5500/project/index.html")
