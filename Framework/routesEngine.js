@@ -9,15 +9,27 @@ class routesEngine {
     //Define Routes
     goToLink(link) {
         let verifyRoute = false
+        let varsRoute = []
+        let routeStr=[]
         //Verify if route is exist in context
         //Add verificação exata do componente, para executar ou rederizar a rota
         //correta dentro do contexto
-        this.routePath.forEach(element => {
-            if (link.includes(element)) {
-                this.getRouteVars()
-                this.routeLine = this.routeVars[this.routeVars.length]
-                verifyRoute = true
+        varsRoute = this.getRoutesOutside(link)
+        varsRoute.forEach(element => {
+            //collect vars outside 
+            routeStr=this.getRoutesOutside(element)
+            for(let indexVars=0;indexVars<routeStr.length;indexVars++){
+                if(routeStr[indexVars].includes(this.routeVars[indexVars])){
+                    countRoutesValid++
+                }
+                else{
+                    countRoutesValid=-2
+                }
             }
+            if(countRoutesValid == routeStr.length && this.routeVars.length == routeStr.length){
+                verifyRoute =true
+            }
+            countRoutesValid=0
         });
         if (verifyRoute == true) {
             for (let indexComp = 0; indexComp < this.routePath.length; indexComp += 1) {
