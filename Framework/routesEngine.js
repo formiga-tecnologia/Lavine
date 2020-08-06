@@ -15,7 +15,7 @@ class routesEngine {
         //Add verificação exata do componente, para executar ou rederizar a rota
         //correta dentro do contexto
         varsRoute = this.getRoutesOutside(link)
-        varsRoute.forEach(element => {
+        this.routePath.forEach(element => {
             //collect vars outside 
             routeStr=this.getRoutesOutside(element)
             for(let indexVars=0;indexVars<routeStr.length;indexVars++){
