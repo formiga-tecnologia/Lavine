@@ -9,36 +9,13 @@ class routesEngine {
     //Define Routes
     goToLink(link) {
         let verifyRoute = false
-        let varsRoute = []
-        let routeStr=[]
-        let countRoutesValid = 0
-        //Verify if route is exist in context
-        //Add verificação exata do componente, para executar ou rederizar a rota
-        //correta dentro do contexto
-        varsRoute = this.getRoutesOutside(link)
+        link = this.removeVarsOfRoute(link)
         this.routePath.forEach(element => {
-            //collect vars outside 
-            routeStr=this.getRoutesOutside(element)
-            for(let indexVars=0;indexVars<routeStr.length;indexVars++){
-                if(routeStr[indexVars].includes(this.routeVars[indexVars])){
-                    countRoutesValid++
-                }
-                else{
-                    countRoutesValid=-2
-                }
+            if(element == link){
+                verifyRoute = true
             }
-            if(countRoutesValid == routeStr.length && this.routeVars.length == routeStr.length){
-                verifyRoute =true
-            }
-            countRoutesValid=0
         });
         if (verifyRoute == true) {
-            //for (let indexComp = 0; indexComp < this.routePath.length; indexComp += 1) {
-                //if (this.routePath[indexComp].includes(link)) {
-              //      console.log(this.routeComp[indexComp])
-              //  }
-            //}
-            console.log(link+" redirect to page")
             if (window.location.href != link) {
                 history.pushState(link, link)
                 this.routeIndex = link
@@ -114,7 +91,6 @@ class routesEngine {
         let newRoute=""
         while(IndexRouteLength<route.length){
             if(route[IndexRouteLength]=='='){
-                console.log("aaaff")
                 for (let index = IndexRouteLength; index < route.length; index++) {
                     if(route[IndexRouteLength]=="/"){
                         break
@@ -127,7 +103,6 @@ class routesEngine {
             }
             IndexRouteLength++
         }
-        console.log(newRoute)
         return newRoute
     }
     registerRoute(routePathRegister, compEvent) {
