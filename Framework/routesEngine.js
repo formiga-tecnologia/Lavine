@@ -4,27 +4,19 @@ class routesEngine {
     routeVars = []
     routePath = []
     routeComp = []
+    routePropsVars=[]
     listenersEvents = [0, 1]
     listenerAwaitEvents = ""
     //Define Routes
     goToLink(link) {
         let verifyRoute = false
-        //Verify if route is exist in context
-        //Add verificação exata do componente, para executar ou rederizar a rota
-        //correta dentro do contexto
+        link = this.removeVarsOfRoute(link)
         this.routePath.forEach(element => {
-            if (link.includes(element)) {
-                this.getRouteVars()
-                this.routeLine = this.routeVars[this.routeVars.length]
+            if(element == link){
                 verifyRoute = true
             }
         });
         if (verifyRoute == true) {
-            for (let indexComp = 0; indexComp < this.routePath.length; indexComp += 1) {
-                if (this.routePath[indexComp].includes(link)) {
-                    console.log(this.routeComp[indexComp])
-                }
-            }
             if (window.location.href != link) {
                 history.pushState(link, link)
                 this.routeIndex = link
@@ -94,6 +86,32 @@ class routesEngine {
         }
         TargetRouteVars.push(varB)
         return TargetRouteVars
+    }
+    removeVarsOfRoute(route){
+        this.routePropsVars=[]
+        let IndexRouteLength=0
+        let newRoute=""
+        let varsRoute=""
+        while(IndexRouteLength<route.length){
+            if(route[IndexRouteLength]=='='){
+                for (let index = IndexRouteLength; index < route.length; index++) {
+                    if(route[IndexRouteLength]=="/"){
+                        break
+                    }
+                    varsRoute+=route[IndexRouteLength]
+                    IndexRouteLength++
+                }
+            }
+            if(varsRoute!=""){
+                this.routePropsVars.push(varsRoute)
+            }
+            if(route[IndexRouteLength]!=undefined){
+            newRoute+=route[IndexRouteLength]
+            }
+            varsRoute=""
+            IndexRouteLength++
+        }
+        return newRoute
     }
     registerRoute(routePathRegister, compEvent) {
         this.routePath.push(routePathRegister)
