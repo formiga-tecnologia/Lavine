@@ -108,4 +108,5 @@ eng.Security.AddSecurityRule("<div>","Html elements in inputs")
 eng.Security.redirectRouteSecurity("http://127.0.0.1:5500/project/index.html#pages/error")
 
 //eng.routesEngine.getUpdateRoutes("http://127.0.0.1:5500/project/index.html#pages/docs")
-eng.routesEngine.goToLink("http://127.0.0.1:5500/project/index.html#pages/docs=453")
+//eng.routesEngine.goToLink("http://127.0.0.1:5500/project/index.html#pages/docs=453")
+console.log(eng.routesEngine.removeVarsOfRoute("http://127.0.0.1:5500/project/index.html#pages/docs=453")+"vars: "+eng.routesEngine.routePropsVars)

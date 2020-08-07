@@ -4,6 +4,7 @@ class routesEngine {
     routeVars = []
     routePath = []
     routeComp = []
+    routePropsVars=[]
     listenersEvents = [0, 1]
     listenerAwaitEvents = ""
     //Define Routes
@@ -89,18 +90,24 @@ class routesEngine {
     removeVarsOfRoute(route){
         let IndexRouteLength=0
         let newRoute=""
+        let varsRoute=""
         while(IndexRouteLength<route.length){
             if(route[IndexRouteLength]=='='){
                 for (let index = IndexRouteLength; index < route.length; index++) {
                     if(route[IndexRouteLength]=="/"){
                         break
                     }
+                    varsRoute+=route[IndexRouteLength]
                     IndexRouteLength++
                 }
+            }
+            if(varsRoute!=""){
+                this.routePropsVars.push(varsRoute)
             }
             if(route[IndexRouteLength]!=undefined){
             newRoute+=route[IndexRouteLength]
             }
+            varsRoute=""
             IndexRouteLength++
         }
         return newRoute
