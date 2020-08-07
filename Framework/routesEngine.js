@@ -88,6 +88,7 @@ class routesEngine {
         return TargetRouteVars
     }
     removeVarsOfRoute(route){
+        this.routePropsVars=[]
         let IndexRouteLength=0
         let newRoute=""
         let varsRoute=""
