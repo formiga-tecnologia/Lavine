@@ -109,6 +109,27 @@ class routesEngine {
         TargetRouteVars.push(varB)
         return TargetRouteVars
     }
+    removeVarsOfRoute(route){
+        let IndexRouteLength=0
+        let newRoute=""
+        while(IndexRouteLength<route.length){
+            if(route[IndexRouteLength]=='='){
+                console.log("aaaff")
+                for (let index = IndexRouteLength; index < route.length; index++) {
+                    if(route[IndexRouteLength]=="/"){
+                        break
+                    }
+                    IndexRouteLength++
+                }
+            }
+            if(route[IndexRouteLength]!=undefined){
+            newRoute+=route[IndexRouteLength]
+            }
+            IndexRouteLength++
+        }
+        console.log(newRoute)
+        return newRoute
+    }
     registerRoute(routePathRegister, compEvent) {
         this.routePath.push(routePathRegister)
         this.routeComp.push(compEvent)
