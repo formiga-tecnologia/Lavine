@@ -11,6 +11,7 @@ class routesEngine {
         let verifyRoute = false
         let varsRoute = []
         let routeStr=[]
+        let countRoutesValid = 0
         //Verify if route is exist in context
         //Add verificação exata do componente, para executar ou rederizar a rota
         //correta dentro do contexto
@@ -32,11 +33,12 @@ class routesEngine {
             countRoutesValid=0
         });
         if (verifyRoute == true) {
-            for (let indexComp = 0; indexComp < this.routePath.length; indexComp += 1) {
-                if (this.routePath[indexComp].includes(link)) {
-                    console.log(this.routeComp[indexComp])
-                }
-            }
+            //for (let indexComp = 0; indexComp < this.routePath.length; indexComp += 1) {
+                //if (this.routePath[indexComp].includes(link)) {
+              //      console.log(this.routeComp[indexComp])
+              //  }
+            //}
+            console.log(link+" redirect to page")
             if (window.location.href != link) {
                 history.pushState(link, link)
                 this.routeIndex = link
