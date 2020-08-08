@@ -20,12 +20,11 @@ class routesEngine {
             
         }
         if (verifyRoute == true) {
-            if (window.location.href != link) {
                 history.pushState(link, link)
                 this.routeIndex = link
                 window.location.href = link
                 this.routeComp[indexRoute]()
-            }
+                verifyRoute=false
         }
         else {
             document.getElementById("app").innerText = "404 route dont found"
@@ -121,7 +120,14 @@ class routesEngine {
     registerRoute(routePathRegister, compEvent) {
         this.routePath.push(routePathRegister)
         this.routeComp.push(compEvent)
-
+    }
+    runRoute(initialPage,InitialPageRedirect){
+        if(window.location.href==initialPage){
+            this.goToLink(InitialPageRedirect)
+        }
+        else{
+            this.whenChangeRoute(this.goToLink(this.routeIndex))
+        }
     }
     //When executes update event in page
     whenUpdate(eventClass) {
@@ -135,6 +141,7 @@ class routesEngine {
         this.listenersEvents[1] = eventClass
         window.addEventListener("popstate", this.listenersEvents[1])
     }
+
 
     addEventSync() {
         this.resolveAwait()
