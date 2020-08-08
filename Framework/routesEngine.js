@@ -103,6 +103,7 @@ class routesEngine {
                 }
             }
             if(varsRoute!=""){
+                varsRoute =varsRoute.replace('=','')
                 this.routePropsVars.push(varsRoute)
             }
             if(route[IndexRouteLength]!=undefined){
