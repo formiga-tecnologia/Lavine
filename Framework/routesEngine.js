@@ -10,17 +10,21 @@ class routesEngine {
     //Define Routes
     goToLink(link) {
         let verifyRoute = false
+        let indexRoute=0
         link = this.removeVarsOfRoute(link)
-        this.routePath.forEach(element => {
-            if(element == link){
-                verifyRoute = true
+        for (let indexRoutesFinder = 0; indexRoutesFinder < this.routePath.length; indexRoutesFinder++) {
+            if(this.routePath[indexRoutesFinder] == link){
+                verifyRoute=true
+                indexRoute =indexRoutesFinder
             }
-        });
+            
+        }
         if (verifyRoute == true) {
             if (window.location.href != link) {
                 history.pushState(link, link)
                 this.routeIndex = link
                 window.location.href = link
+                this.routeComp[indexRoute]()
             }
         }
         else {
