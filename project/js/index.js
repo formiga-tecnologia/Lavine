@@ -38,12 +38,13 @@ function searchGuide(){
     eng.routesEngine.goToLink("http://127.0.0.1:5500/project/index.html#pages/docs="+searchArgs)
    }
    else{
-       //eng.renderEngine.clearPage()
+       eng.renderEngine.clearPage()
        eng.routesEngine.goToLink("http://127.0.0.1:5500/project/index.html#pages/docs/erro")
    }
 }
 
 function listPage(){
+    eng.renderEngine.clearPage()
     listCards()
     for (let index = 1; index < 20; index++) {
         fetch('https://jsonplaceholder.typicode.com/posts/' + index)
