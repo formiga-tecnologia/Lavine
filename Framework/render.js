@@ -3,6 +3,7 @@ class RenderEngine {
     //não esta sendo pratico usar o registro? pensar nessa possibilidade
     renderElementInPage = []
     registerPage = []
+    pageDynamic=""
 
     //unique render page
     newrenderElement(renderElement, content, selectObjct, classList, Id) {
@@ -46,6 +47,12 @@ class RenderEngine {
         SetRulesArray.forEach(element => {
            document.getElementById(selectObjectId).classList+=element
         });
+    }
+    registerDinamicPage(DivId){
+        this.pageDynamic=DivId
+    }
+    clearPage(){
+        document.getElementById(this.pageDynamic).innerHTML=""
     }
 }
 
