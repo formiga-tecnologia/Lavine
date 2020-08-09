@@ -1,6 +1,7 @@
 import EngineApp from '../../../Framework/engine.js'
 //render obj
 var compRender = new EngineApp()
+var created=false
 
 //renderização de objeto tipo 'card'
 function cards(){
@@ -12,8 +13,11 @@ function cards(){
         "<br> <button id='clBt'>Consultar Dados</button> "
         +"</div"
     ]
-    compRender.componentsEngine.createComponent("card",comp)
+    if(created==false){
+        compRender.componentsEngine.createComponent("card",comp)
+    }
     compRender.componentsEngine.renderComponent("dinamicType","card")
+    created=true
 }
 
 export default cards

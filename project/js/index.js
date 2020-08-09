@@ -11,7 +11,7 @@ eng.renderEngine.registerDinamicPage("dinamicType")
 eng.routesEngine.registerRoute("http://127.0.0.1:5500/project/","initialPage")
 eng.routesEngine.registerRoute("http://127.0.0.1:5500/project/index.html#pageInitial",welcomeguide)
 eng.routesEngine.registerRoute("http://127.0.0.1:5500/project/index.html#pages/docs",docsPage)
-eng.routesEngine.registerRoute("http://127.0.0.1:5500/project/index.html#pages/docs/erro",error)
+eng.routesEngine.registerRoute("http://127.0.0.1:5500/project/index.html#pages/docs/erro",error) 
 //ao adicionar uma rota
 eng.routesEngine.runRoute("http://127.0.0.1:5500/project/index.html","http://127.0.0.1:5500/project/index.html#pageInitial")
 
@@ -26,7 +26,7 @@ function docsPage(){
         error()
     }
 }
-
+//quando modificar o campo de  procura 
 eng.routesEngine.whenChange(searchGuide,"searchGuide")
 
 function searchGuide(){
@@ -36,7 +36,7 @@ function searchGuide(){
    }
    else{
        eng.renderEngine.clearPage()
-       error()
+       eng.routesEngine.goToLink("http://127.0.0.1:5500/project/index.html#pages/docs/erro")
    }
 }
 
