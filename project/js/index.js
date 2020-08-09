@@ -19,14 +19,25 @@ eng.routesEngine.runRoute("http://127.0.0.1:5500/project/index.html","http://127
 function docsPage(){
     eng.renderEngine.clearPage()
     cards()
-    Api(eng.routesEngine.routePropsVars[0])
+    if(eng.routesEngine.routePropsVars[0]!=undefined){
+        Api(eng.routesEngine.routePropsVars[0])
+    }
+    else{
+        error()
+    }
 }
 
 eng.routesEngine.whenChange(searchGuide,"searchGuide")
 
 function searchGuide(){
    let searchArgs = document.getElementById("searchGuide").value.length
-   eng.routesEngine.goToLink("http://127.0.0.1:5500/project/index.html#pages/docs="+searchArgs)
+   if(searchArgs>0){
+    eng.routesEngine.goToLink("http://127.0.0.1:5500/project/index.html#pages/docs="+searchArgs)
+   }
+   else{
+       eng.renderEngine.clearPage()
+       error()
+   }
 }
 
 document.getElementById("idHome").addEventListener("click",GoMainHome,false)
