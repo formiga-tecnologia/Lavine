@@ -28,7 +28,7 @@ class RenderEngine {
         this.renderElementInPage.push(selectObjct)
     }
     renderHtml(elementTarget,context){
-        document.getElementById(elementTarget).innerHTML = context
+        document.getElementById(elementTarget).innerHTML += context
     }
     changeContentElement(Id,content){
         let nodeContent = document.createTextNode(content)

@@ -3,6 +3,7 @@ import cards from './components/cards.js'
 import welcomeguide from './components/welcomeGuide.js'
 import menu from './components/menu.js'
 import error from './components/error.js'
+import listCards from './components/listCards.js'
 let eng = new EngineApp()
 
 menu() //Render Menu 
@@ -12,6 +13,7 @@ eng.routesEngine.registerRoute("http://127.0.0.1:5500/project/","initialPage")
 eng.routesEngine.registerRoute("http://127.0.0.1:5500/project/index.html#pageInitial",welcomeguide)
 eng.routesEngine.registerRoute("http://127.0.0.1:5500/project/index.html#pages/docs",docsPage)
 eng.routesEngine.registerRoute("http://127.0.0.1:5500/project/index.html#pages/docs/erro",error) 
+eng.routesEngine.registerRoute("http://127.0.0.1:5500/project/index.html#pages/docs/list",listPage) 
 //ao adicionar uma rota
 eng.routesEngine.runRoute("http://127.0.0.1:5500/project/index.html","http://127.0.0.1:5500/project/index.html#pageInitial")
 
@@ -23,6 +25,7 @@ function docsPage(){
         Api(eng.routesEngine.routePropsVars[0])
     }
     else{
+        eng.renderEngine.clearPage()
         error()
     }
 }
@@ -35,9 +38,18 @@ function searchGuide(){
     eng.routesEngine.goToLink("http://127.0.0.1:5500/project/index.html#pages/docs="+searchArgs)
    }
    else{
-       eng.renderEngine.clearPage()
+       //eng.renderEngine.clearPage()
        eng.routesEngine.goToLink("http://127.0.0.1:5500/project/index.html#pages/docs/erro")
    }
+}
+
+function listPage(){
+    listCards()
+    for (let index = 1; index < 20; index++) {
+        fetch('https://jsonplaceholder.typicode.com/posts/' + index)
+        .then(response => response.json())
+        .then(json => eng.renderEngine.renderHtml("ListGroup","<li class='list-group-item'>"+json.title+"</li>"))
+    }
 }
 
 document.getElementById("idHome").addEventListener("click",GoMainHome,false)
