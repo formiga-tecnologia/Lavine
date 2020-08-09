@@ -14,7 +14,7 @@ eng.routesEngine.registerRoute("http://127.0.0.1:5500/project/index.html#pageIni
 eng.routesEngine.registerRoute("http://127.0.0.1:5500/project/index.html#pages/docs",docsPage)
 eng.routesEngine.registerRoute("http://127.0.0.1:5500/project/index.html#pages/docs/erro",error) 
 eng.routesEngine.registerRoute("http://127.0.0.1:5500/project/index.html#pages/docs/list",listPage) 
-//ao adicionar uma rota
+//para redirecionar a rota inicial
 eng.routesEngine.runRoute("http://127.0.0.1:5500/project/index.html","http://127.0.0.1:5500/project/index.html#pageInitial")
 
 //procurar paginação de documentos
@@ -54,6 +54,7 @@ function listPage(){
 }
 
 document.getElementById("idHome").addEventListener("click",GoMainHome,false)
+document.getElementById("listprod").addEventListener("click",listPage,false)
 
 function GoMainHome(){
     eng.renderEngine.clearPage()
