@@ -13,6 +13,7 @@ class routesEngine {
         let indexRoute=0
         document.location.href = link
         link = this.removeVarsOfRoute(link)
+        
         for (let indexRoutesFinder = 0; indexRoutesFinder < this.routePath.length; indexRoutesFinder++) {
             if(this.routePath[indexRoutesFinder] == link){
                 verifyRoute=true

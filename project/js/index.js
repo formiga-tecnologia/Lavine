@@ -4,11 +4,9 @@ import welcomeguide from './components/welcomeGuide.js'
 import menu from './components/menu.js'
 import error from './components/error.js'
 let eng = new EngineApp()
-let count = 0
-let link = ""
 
 menu() //Render Menu 
-
+eng.renderEngine.registerDinamicPage("dinamicType")
 //Add rota
 eng.routesEngine.registerRoute("http://127.0.0.1:5500/project/","initialPage")
 eng.routesEngine.registerRoute("http://127.0.0.1:5500/project/index.html#pageInitial",welcomeguide)
@@ -19,12 +17,9 @@ eng.routesEngine.runRoute("http://127.0.0.1:5500/project/index.html","http://127
 
 //procurar paginação de documentos
 function docsPage(){
-    if(eng.routesEngine.routePropsVars.length!=1){
-        cards()
-    }
-    else{
-        Api(eng.routesEngine.routePropsVars[0])
-    }
+    eng.renderEngine.clearPage()
+    cards()
+    Api(eng.routesEngine.routePropsVars[0])
 }
 
 eng.routesEngine.whenChange(searchGuide,"searchGuide")
@@ -32,6 +27,13 @@ eng.routesEngine.whenChange(searchGuide,"searchGuide")
 function searchGuide(){
    let searchArgs = document.getElementById("searchGuide").value.length
    eng.routesEngine.goToLink("http://127.0.0.1:5500/project/index.html#pages/docs="+searchArgs)
+}
+
+document.getElementById("idHome").addEventListener("click",GoMainHome,false)
+
+function GoMainHome(){
+    eng.renderEngine.clearPage()
+    eng.routesEngine.goToLink("http://127.0.0.1:5500/project/index.html#pageInitial")
 }
 
 //API

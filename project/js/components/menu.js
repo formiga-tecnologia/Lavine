@@ -6,7 +6,7 @@ var NavOptions = ["Produtos","Sobre","Ajuda"]
 
 function menu(){
     render.newrenderElement("nav","","dinamicMenu","","nav0")
-    render.newrenderElement("a","Lavine","nav0","navbar-brand","")
+    render.newrenderElement("a","Lavine","nav0","navbar-brand","idHome")
     render.newrenderElement("div","","nav0","","navbarNav")
     render.newrenderElement("ul","","navbarNav","navbar-nav","listId1")
 
