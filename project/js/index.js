@@ -71,3 +71,36 @@ function Api(data) {
         .then(response => response.json())
         .then(json => eng.renderEngine.changeContentElement("contentBody", json.body))
 }
+
+let varLcoal=""
+
+function HelloBase(name){
+    varLcoal=name
+    return ('<div> #{name} </div>')
+}
+
+function preRender(render){
+    let varFunction = ""
+    let varname=""
+    let index=0
+    while(render.length > index){
+        if(render[index]=='#' && render[index+1]=='{'){
+            while(render[index]!="}"){
+                varFunction+=render[index]
+                varname+=render[index]
+                index++
+            }
+            if(render[index]=="}")varFunction+='}'
+        }
+        index++
+    }
+    render = render.replace(varFunction,varLcoal)
+    return render
+}
+
+function render(base){
+
+    return preRender(base)
+}
+
+document.getElementById("idHome").append(render(HelloBase("ola")))   
