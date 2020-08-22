@@ -10,12 +10,16 @@ menu() //Render Menu
 eng.renderEngine.registerDinamicPage("dinamicType")
 //Add rota
 eng.routesEngine.registerRoute("http://127.0.0.1:5500/project/","initialPage")
-eng.routesEngine.registerRoute("http://127.0.0.1:5500/project/index.html#pageInitial",welcomeguide)
+eng.routesEngine.registerRoute("http://127.0.0.1:5500/project/index.html#pageInitial",welcome)
 eng.routesEngine.registerRoute("http://127.0.0.1:5500/project/index.html#pages/docs",docsPage)
 eng.routesEngine.registerRoute("http://127.0.0.1:5500/project/index.html#pages/docs/erro",error) 
 eng.routesEngine.registerRoute("http://127.0.0.1:5500/project/index.html#pages/docs/list",listPage) 
 //para redirecionar a rota inicial
 eng.routesEngine.runRoute("http://127.0.0.1:5500/project/index.html","http://127.0.0.1:5500/project/index.html#pageInitial")
+
+function welcome(){
+    welcomeguide("Felipe")
+}
 
 //procurar paginação de documentos
 function docsPage(){
