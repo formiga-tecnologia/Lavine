@@ -7,13 +7,13 @@ function blackbox(content,body){
 }
 
 function box(titulo,body){
-    return "<br><div class='card'>"+
+    return "<br><div class='container' <br><div class='card'>"+
     " <div class='card-header'>Lavine Framework</div"+
     "<div class='card-body'>"+
-    "<h5 class='card-title'>Special title treatment</h5>"+
-    "<p class='card-text'>With supporting text below as a natural lead-in to additional content.</p>"+
-    "<a href='#'' class='btn btn-primary'>Go somewhere</a>"+
-    "</div></div>"
+    "<h5 class='card-title'>"+titulo+"</h5>"+
+    "<p class='card-text'>"+body+"</p>"+
+    "<a href='#'' class='btn btn-primary'>Ir para a documentação</a>"+
+    "</div></div></div>"
 }
 
 export default blackbox

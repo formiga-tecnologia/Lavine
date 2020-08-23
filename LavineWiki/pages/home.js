@@ -1,11 +1,13 @@
 import EngineApp from '../../Framework/engine.js'
 import blackbox from '../components/blackBox.js'
+import example from '../components/example.js'
 
 function homePage(){
     let eng = new EngineApp()
     eng.componentsEngine.createComponent("article1",articlePage())
     eng.componentsEngine.renderComponent("dinamic","article1")
     blackbox("Lavine Testes","que isso rapaz a lavine é braba!")
+    example("function ComponentTeste(args){<br>   eng.componentsEngine.createComponent('article1',articlePage())<br>}")
 }
 
 function articlePage(){
