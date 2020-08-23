@@ -1,15 +1,21 @@
 import EngineApp from '../../Framework/engine.js'
 import blackbox from '../components/blackBox.js'
 import example from '../components/example.js'
+import routes from '../routes/routes.js'
 
+let eng = new EngineApp()
+let rot = new routes()
 function homePage(){
     let eng = new EngineApp()
     eng.componentsEngine.createComponent("article1",articlePage())
-    eng.componentsEngine.renderComponent("dinamic","article1")
+    eng.componentsEngine.renderComponent("dinamic-Article","article1")
     blackbox("Lavine Testes","que isso rapaz a lavine é braba!")
     example("function ComponentTeste(args){<br>   eng.componentsEngine.createComponent('article1',articlePage())<br>}")
+    document.getElementById("goBtn").addEventListener("click",goFunctions,false)
 }
-
+function goFunctions(){
+   rot.doc()
+}
 function articlePage(){
     return "<br><div id='articles' class='container'>"+
     "<div class='row'>"+

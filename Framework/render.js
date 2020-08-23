@@ -4,6 +4,7 @@ class RenderEngine {
     renderElementInPage = []
     registerPage = []
     pageDynamic=""
+    SetPageDynamic=""
 
     //unique render page
     newrenderElement(renderElement, content, selectObjct, classList, Id) {

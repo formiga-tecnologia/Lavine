@@ -1,18 +1,18 @@
 import menu from "../components/menu.js"
 import EngineApp from '../../Framework/engine.js'
 import homePage from "../pages/home.js"
+import routes from '../routes/routes.js'
 
 var eng=new EngineApp()
+var rto = new routes()
 //renderizar o menu
+rto.routesCreated()
 menu(1)
-//sistemas De rotas
-eng.routesEngine.registerRoute("http://127.0.0.1:5500/LavineWiki/index.html#pageInitial",teste)
-eng.routesEngine.runRoute("http://127.0.0.1:5500/LavineWiki/index.html","http://127.0.0.1:5500/LavineWiki/index.html#pageInitial")
 
-function teste(){
-    console.log("ai")
+class functionsClass{
+    gotoLink(){
+
+    }
 }
 
-homePage()
-
-export default eng
+export default functionsClass
