@@ -8,7 +8,6 @@ function menu(){
       "<input class='form-control mr-sm-2' type='search'  placeholder='Procurar...' aria-label='Search'"+
     "</form>"+
     "</nav>"
-   
 }
 
 export default menu
