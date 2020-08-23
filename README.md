@@ -1,5 +1,7 @@
 # Lavine
 
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/formiga-tecnologia/Lavine/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/formiga-tecnologia/Lavine/?branch=master)
+
 ## Framework Js to front end project
 
 Framework Js for creation SPA aplication web, where no use server aplication (for exemple node.js)

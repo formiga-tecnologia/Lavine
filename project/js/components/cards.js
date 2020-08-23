@@ -7,7 +7,7 @@ var created=false
 function cards(){
     var comp = [
         "<div id='card0'>"+"<br>"+
-        "<div id='header0' class='card-header'></div>"+
+        "<div id='header0' class='card-header'>Hello world</div>"+
         "<div id='card1' class='card-body'>"+
         "<p id='contentBody'>"+"</p>"+
         "<br> <button id='clBt'>Consultar Dados</button> "
@@ -19,5 +19,6 @@ function cards(){
     compRender.componentsEngine.renderComponent("dinamicType","card")
     created=true
 }
+
 
 export default cards

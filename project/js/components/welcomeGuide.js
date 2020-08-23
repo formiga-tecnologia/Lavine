@@ -1,16 +1,16 @@
-import RenderEngine from '../../../Framework/render.js'
 import engine from '../../../Framework/engine.js'
-
-var render = new RenderEngine()
 var eng =new engine()
 
-
-function welcomeGuide(){
-    render.newrenderElement("div","","dinamicType","","welcome-div")
-    render.newrenderElement("h3","Seja bem vindo a Lavine.js","welcome-div","","")
-    render.newrenderElement("h5","Neste modelo de exemplo mostramos como funciona a Lavine","welcome-div","","")
-    render.newrenderElement("button","Show Data","welcome-div","","clBtadd")
-   
+function welcomeGuide(user){
+    var comp =[
+        "<div>"+
+        "<h3>Seja bem vindo "+ user +" , a Lavine.js  </h3>"
+        +"<h5>Neste modelo de exemplo mostramos como funciona a Lavine</h5>"+
+        "<button> Show data </button>"
+        +"</div>"   
+    ]
+    eng.componentsEngine.createComponent("welcome",comp)
+    eng.componentsEngine.renderComponent("dinamicType","welcome")
 }
 
 export default welcomeGuide

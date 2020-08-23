@@ -3,6 +3,8 @@ import RenderEngine from './render.js'
 class Components{
     componentsArray = []
     render = new RenderEngine
+    readerVar =""
+    varsComp = []
     createComponent(componentName,content){
         let componentNames_bolean = false
         for (let index = 0; index < this.componentsArray.length; index++) {

@@ -10,12 +10,16 @@ menu() //Render Menu
 eng.renderEngine.registerDinamicPage("dinamicType")
 //Add rota
 eng.routesEngine.registerRoute("http://127.0.0.1:5500/project/","initialPage")
-eng.routesEngine.registerRoute("http://127.0.0.1:5500/project/index.html#pageInitial",welcomeguide)
+eng.routesEngine.registerRoute("http://127.0.0.1:5500/project/index.html#pageInitial",welcome)
 eng.routesEngine.registerRoute("http://127.0.0.1:5500/project/index.html#pages/docs",docsPage)
 eng.routesEngine.registerRoute("http://127.0.0.1:5500/project/index.html#pages/docs/erro",error) 
 eng.routesEngine.registerRoute("http://127.0.0.1:5500/project/index.html#pages/docs/list",listPage) 
 //para redirecionar a rota inicial
 eng.routesEngine.runRoute("http://127.0.0.1:5500/project/index.html","http://127.0.0.1:5500/project/index.html#pageInitial")
+
+function welcome(){
+    welcomeguide("Felipe")
+}
 
 //procurar paginação de documentos
 function docsPage(){
@@ -71,3 +75,36 @@ function Api(data) {
         .then(response => response.json())
         .then(json => eng.renderEngine.changeContentElement("contentBody", json.body))
 }
+
+let varLcoal=""
+
+function HelloBase(name){
+    varLcoal=name
+    return ('<div> #{name} </div>')
+}
+
+function preRender(render){
+    let varFunction = ""
+    let varname=""
+    let index=0
+    while(render.length > index){
+        if(render[index]=='#' && render[index+1]=='{'){
+            while(render[index]!="}"){
+                varFunction+=render[index]
+                varname+=render[index]
+                index++
+            }
+            if(render[index]=="}")varFunction+='}'
+        }
+        index++
+    }
+    render = render.replace(varFunction,varLcoal)
+    return render
+}
+
+function render(base){
+
+    return preRender(base)
+}
+
+document.getElementById("idHome").append(render(HelloBase("ola")))   
