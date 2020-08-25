@@ -3,7 +3,6 @@ import blackbox from '../components/blackBox.js'
 import example from '../components/example.js'
 import routes from '../routes/routes.js'
 
-let eng = new EngineApp()
 let rot = new routes()
 function homePage(){
     let eng = new EngineApp()
