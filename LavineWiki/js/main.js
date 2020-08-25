@@ -8,10 +8,17 @@ var rto = new routes()
 //renderizar o menu
 rto.routesCreated()
 menu(1)
+document.getElementById("docLink").addEventListener("click",gotolinkDoc,false)
+document.getElementById("homelavine").addEventListener("click",homeLink,false)
 
+function gotolinkDoc(){
+    rto.doc()
+}
+function homeLink(){
+    rto.teste()
+}
 class functionsClass{
     gotoLink(){
-
     }
 }
 
