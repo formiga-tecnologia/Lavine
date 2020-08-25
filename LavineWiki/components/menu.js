@@ -7,9 +7,9 @@ function menu(id){
 }
 function registerMenu(){
     
-    return "<nav class='navbar navbar-expand-lg navbar-dark bg-dark'>"+
+    return "<nav class='menustatic navbar navbar-expand-lg navbar-dark bg-dark'>"+
     "<a class='navbar-brand'>Lavine</a>"+
-    "<a class='nav-link active' href='#'>Documentação</a>"+
+    "<a class='nav-link active' href='http://127.0.0.1:5500/LavineWiki/index.html#docs'>Documentação</a>"+
     "<a class='nav-link active' href='#' >Sobre</a>"+
     "<form>"+
       "<input class='form-control mr-sm-2' type='search'  placeholder='Procurar...' aria-label='Search'"+
