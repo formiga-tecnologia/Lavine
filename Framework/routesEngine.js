@@ -127,6 +127,9 @@ class routesEngine {
         if(window.location.href==initialPage){
             this.goToLink(InitialPageRedirect)
         }
+        else{
+            this.whenChangeRoute(this.goToLink(this.routeIndex))
+        }
     }
     //When executes update event in page
     whenUpdate(eventClass) {
