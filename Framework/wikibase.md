@@ -22,5 +22,13 @@ after you create the path architeture you can  starts create the files.
 * Pages / home.js
 * Routes / route.js
 * Components / menu.js (the component folder you not need create components in it frist step)
+* index.js (you can create one folder some it file or no, its is up to you )
 
 now we can creter the start  file for we project.
+
+### Start the frist configurations
+
+in the frist file will the index.js  we import the  engine.js  from framework, follow the example  type from
+import:
+' import EngineApp from '../../Framework/engine.js' '
+with is import we can create news functions in routes / renders / components or security.
