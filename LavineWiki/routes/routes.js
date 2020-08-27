@@ -12,8 +12,8 @@ class routes{
         //sistemas De rotas
         if(isCreate==false){
             eng.routesEngine.registerRoute("https://lavine.netlify.app/#homePage",this.teste)
-            eng.routesEngine.registerRoute("https://lavine.netlify.app/index.html#docs",this.docc) 
-            eng.routesEngine.registerRoute("https://lavine.netlify.app/index.html#about",this.aboutRoute)  
+            eng.routesEngine.registerRoute("https://lavine.netlify.app/#docs",this.docc) 
+            eng.routesEngine.registerRoute("https://lavine.netlify.app/#about",this.aboutRoute)  
         }
         isCreate=true
         eng.routesEngine.runRoute("https://lavine.netlify.app","https://lavine.netlify.app/#homePage")
@@ -36,10 +36,10 @@ class routes{
         AboutPage()
     }
     doc(){
-        eng.routesEngine.goToLink("https://lavine.netlify.app/index.html#docs")
+        eng.routesEngine.goToLink("https://lavine.netlify.app/#docs")
     }
     about(){
-        eng.routesEngine.goToLink("https://lavine.netlify.app/index.html#about")
+        eng.routesEngine.goToLink("https://lavine.netlify.app/#about")
     }
 }
 
