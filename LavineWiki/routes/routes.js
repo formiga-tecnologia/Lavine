@@ -11,14 +11,13 @@ class routes{
         
         //sistemas De rotas
         if(isCreate==false){
-            eng.routesEngine.registerRoute("https://lavine.netlify.app",this.teste)
             eng.routesEngine.registerRoute("https://lavine.netlify.app/#homePage",this.teste)
             eng.routesEngine.registerRoute("https://lavine.netlify.app/#docs",this.docc) 
             eng.routesEngine.registerRoute("https://lavine.netlify.app/#about",this.aboutRoute)  
         }
         isCreate=true
-        eng.routesEngine.runRoute("https://lavine.netlify.app","https://lavine.netlify.app/#homePage")
-        eng.routesEngine.whenUpdate(eng.routesEngine.runRoute("https://lavine.netlify.app","https://lavine.netlify.app/#homePage"))
+        eng.routesEngine.runRoute("https://lavine.netlify.app/","https://lavine.netlify.app/#homePage")
+        eng.routesEngine.whenUpdate(eng.routesEngine.runRoute("https://lavine.netlify.app/","https://lavine.netlify.app/#homePage"))
     
     }
     teste(){
