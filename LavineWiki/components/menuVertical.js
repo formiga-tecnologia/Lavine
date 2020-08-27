@@ -4,7 +4,7 @@ let eng =new EngineApp()
 
 function menuVertical(){
     eng.componentsEngine.createComponent("vertical",menuVerticalRender())
-    eng.componentsEngine.renderComponent("dinamic","vertical")
+    eng.componentsEngine.renderComponent("dinamic-Article","vertical")
 }
 
 function  menuVerticalRender(){

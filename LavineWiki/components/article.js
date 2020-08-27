@@ -3,7 +3,7 @@ let eng =new EngineApp()
 
 function article(id,title,content){
     eng.componentsEngine.createComponent("article"+id,articleRender(title,content))
-    eng.componentsEngine.renderComponent("dinamic","article"+id)
+    eng.componentsEngine.renderComponent("dinamic-Article","article"+id)
 }
 
 function articleRender(title,content){

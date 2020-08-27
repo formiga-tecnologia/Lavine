@@ -6,7 +6,11 @@ import article from '../components/article.js'
 let eng = new EngineApp()
 
 function docs(){
-    let eng = new EngineApp()
+    eng.componentsEngine.createComponent("articleDocs",Renderdocs())
+    eng.componentsEngine.renderComponent("dinamic-Article","articleDocs")
+}
+
+function Renderdocs(){
     menuVertical()
     article(0,"Introdução","Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad quae quasi tenetur, commodi voluptas aperiam sunt alias autem molestiae sit exercitationem! Labore quo optio placeat minima vero id quis! Dicta."+
     "<ul> <li>Aprenda Lavine</li> <li>Estrutura basica</li> <li>Começando um projeto</li> <li>Construção do projeto</li> <li>Passos Avançados</li> </ul>")
