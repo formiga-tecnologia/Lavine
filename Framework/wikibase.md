@@ -18,3 +18,9 @@ with its you have one  big control in your own app, and you app gains scalabilit
 * Components: the components is complement pages where you apply elements can have in your  models.
 
 after you create the path architeture you can  starts create the files.
+
+* Pages / home.js
+* Routes / route.js
+* Components / menu.js (the component folder you not need create components in it frist step)
+
+now we can creter the start  file for we project.
