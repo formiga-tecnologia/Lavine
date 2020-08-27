@@ -7,10 +7,15 @@ var eng=new EngineApp()
 var rto = new routes()
 //renderizar o menu
 rto.routesCreated()
+if(window.location.href=='https://lavine.netlify.app/'){
+    eng.routesEngine.goToLink('https://lavine.netlify.app/#homePage')
+}
+
 menu(1)
 document.getElementById("docLink").addEventListener("click",gotolinkDoc,false)
 document.getElementById("homelavine").addEventListener("click",homeLink,false)
 document.getElementById("AboutLink").addEventListener("click",aboutLink,false)
+console.log("funcionaaaa")
 
 function gotolinkDoc(){
     rto.doc()
