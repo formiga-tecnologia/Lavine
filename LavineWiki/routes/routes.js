@@ -11,13 +11,13 @@ class routes{
         
         //sistemas De rotas
         if(isCreate==false){
-            eng.routesEngine.registerRoute("http:///Lavine/index.html#pageInitial",this.teste)
-            eng.routesEngine.registerRoute("http:///Lavine/index.html#docs",this.docc) 
-            eng.routesEngine.registerRoute("http:///Lavine/index.html#about",this.aboutRoute)  
+            eng.routesEngine.registerRoute("https://lavine.netlify.app/#homePage",this.teste)
+            eng.routesEngine.registerRoute("https://lavine.netlify.app/#docs",this.docc) 
+            eng.routesEngine.registerRoute("https://lavine.netlify.app/#about",this.aboutRoute)  
         }
         isCreate=true
-        eng.routesEngine.runRoute("http:///Lavine/index.html","http:///Lavine/index.html#pageInitial")
-        eng.routesEngine.whenUpdate(eng.routesEngine.runRoute("http:///Lavine/index.html","http:///Lavine/index.html#pageInitial"))
+        eng.routesEngine.runRoute("https://lavine.netlify.app","https://lavine.netlify.app/#homePage")
+        eng.routesEngine.whenUpdate(eng.routesEngine.runRoute("https://lavine.netlify.app","https://lavine.netlify.app/#homePage"))
     
     }
     teste(){
@@ -36,10 +36,10 @@ class routes{
         AboutPage()
     }
     doc(){
-        eng.routesEngine.goToLink("http:///Lavine/index.html#docs")
+        eng.routesEngine.goToLink("https://lavine.netlify.app/#docs")
     }
     about(){
-        eng.routesEngine.goToLink("http:///Lavine/index.html#about")
+        eng.routesEngine.goToLink("https://lavine.netlify.app/#about")
     }
 }
 
