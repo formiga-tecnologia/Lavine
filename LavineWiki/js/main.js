@@ -11,6 +11,7 @@ menu(1)
 document.getElementById("docLink").addEventListener("click",gotolinkDoc,false)
 document.getElementById("homelavine").addEventListener("click",homeLink,false)
 document.getElementById("AboutLink").addEventListener("click",aboutLink,false)
+console.log("funcionaaaa")
 
 function gotolinkDoc(){
     rto.doc()
