@@ -11,13 +11,13 @@ class routes{
         
         //sistemas De rotas
         if(isCreate==false){
-            eng.routesEngine.registerRoute("http://127.0.0.1:5500/LavineWiki/index.html#pageInitial",this.teste)
-            eng.routesEngine.registerRoute("http://127.0.0.1:5500/LavineWiki/index.html#docs",this.docc) 
-            eng.routesEngine.registerRoute("http://127.0.0.1:5500/LavineWiki/index.html#about",this.aboutRoute)  
+            eng.routesEngine.registerRoute("http:///Lavine/index.html#pageInitial",this.teste)
+            eng.routesEngine.registerRoute("http:///Lavine/index.html#docs",this.docc) 
+            eng.routesEngine.registerRoute("http:///Lavine/index.html#about",this.aboutRoute)  
         }
         isCreate=true
-        eng.routesEngine.runRoute("http://127.0.0.1:5500/LavineWiki/index.html","http://127.0.0.1:5500/LavineWiki/index.html#pageInitial")
-        eng.routesEngine.whenUpdate(eng.routesEngine.runRoute("http://127.0.0.1:5500/LavineWiki/index.html","http://127.0.0.1:5500/LavineWiki/index.html#pageInitial"))
+        eng.routesEngine.runRoute("http:///Lavine/index.html","http:///Lavine/index.html#pageInitial")
+        eng.routesEngine.whenUpdate(eng.routesEngine.runRoute("http:///Lavine/index.html","http:///Lavine/index.html#pageInitial"))
     
     }
     teste(){
@@ -36,10 +36,10 @@ class routes{
         AboutPage()
     }
     doc(){
-        eng.routesEngine.goToLink("http://127.0.0.1:5500/LavineWiki/index.html#docs")
+        eng.routesEngine.goToLink("http:///Lavine/index.html#docs")
     }
     about(){
-        eng.routesEngine.goToLink("http://127.0.0.1:5500/LavineWiki/index.html#about")
+        eng.routesEngine.goToLink("http:///Lavine/index.html#about")
     }
 }
 
