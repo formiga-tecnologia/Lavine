@@ -1,4 +1,4 @@
-import menu from "LavineWiki/components/menu.js"
+import menu from "../components/menu.js"
 import EngineApp from '../../Framework/engine.js'
 import homePage from "../pages/home.js"
 import routes from '../routes/routes.js'
