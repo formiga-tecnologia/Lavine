@@ -16,8 +16,8 @@ class routes{
             eng.routesEngine.registerRoute("http://127.0.0.1:5500/LavineWiki/index.html#about",this.aboutRoute)  
         }
         isCreate=true
-        eng.routesEngine.runRoute("http://127.0.0.1:5500/LavineWiki/index.html","http://127.0.0.1:5500/LavineWiki/index.html#pageInitial")
-        eng.routesEngine.whenUpdate(eng.routesEngine.runRoute("http://127.0.0.1:5500/LavineWiki/index.html","http://127.0.0.1:5500/LavineWiki/index.html#pageInitial"))
+        eng.routesEngine.runRoute("http://127.0.0.1:5500/LavineWiki/","http://127.0.0.1:5500/LavineWiki/index.html#pageInitial")
+        eng.routesEngine.whenUpdate(eng.routesEngine.runRoute("http://127.0.0.1:5500/LavineWiki/","http://127.0.0.1:5500/LavineWiki/index.html#pageInitial"))
     
     }
     teste(){

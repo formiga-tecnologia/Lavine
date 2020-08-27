@@ -1,6 +1,7 @@
 # Lavine
 
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/formiga-tecnologia/Lavine/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/formiga-tecnologia/Lavine/?branch=master)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/8018fe7d-1ce3-4070-a4b4-0f3c3ac4fe9c/deploy-status)](https://app.netlify.com/sites/lavine/deploys)
 
 ## Framework Js for front end project
 
