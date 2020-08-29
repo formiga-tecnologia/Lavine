@@ -8,6 +8,8 @@ var isCreate=false
 var eng=new EngineApp()
 
 class routes{
+    //test only
+    //engA = new EngineApp()
     routesCreated(){
         
         //sistemas De rotas
@@ -18,6 +20,8 @@ class routes{
             eng.routesEngine.registerRoute("http://127.0.0.1:5500/LavineWiki/index.html#docs/structurebasic",this.structureBasic)
         }
         isCreate=true
+       // this.engA.renderEngine.pageDynamic="resre"
+        //console.log(this.engA.renderEngine.pageDynamic)
         eng.routesEngine.runRoute("http://127.0.0.1:5500/LavineWiki/","http://127.0.0.1:5500/LavineWiki/index.html#pageInitial")
         eng.routesEngine.whenUpdate(eng.routesEngine.runRoute("http://127.0.0.1:5500/LavineWiki/","http://127.0.0.1:5500/LavineWiki/index.html#pageInitial"))
     
