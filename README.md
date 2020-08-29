@@ -25,9 +25,10 @@ If you can learn Lavine Js and dont have installed in your project now, use CDN 
 
 ## Class of Lavine V0.1
 
-The Lavine have 4 big classes:
+The Lavine have 5 big classes:
 
 * Components.js
 * Engine.js
 * Render.js
 * RoutesEngine.js
+* Mapping.js (coming soon)
