@@ -149,9 +149,10 @@ class routesEngine {
         window.addEventListener('hashchange',eventClass)
     }
     _PrivateChangeLocation(){
-        window.addEventListener('hashchange',this.logConsol)
+        window.addEventListener('hashchange',this.redirectLocation)
     }
-    logConsol(){
+    //#24 Problem to redirect to next link in location bar
+    redirectLocation(){
         console.log("Olha ai")
         let document = window.location.href.toString()
         console.log(document)
