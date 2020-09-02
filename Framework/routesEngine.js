@@ -132,6 +132,7 @@ class routesEngine {
             console.log("eita else")
             this.whenChangeRoute(this.goToLink(this.routeIndex))
         }
+        this._PrivateChangeLocation()
     }
     //When executes update event in page
     whenUpdate(eventClass) {
@@ -157,6 +158,8 @@ class routesEngine {
         let document = window.location.href.toString()
         console.log(document)
         location.replace(document)
+        //Study the functions the routeComp Var
+        console.log(this.routeComp)
     }
 
     addEventSync() {
