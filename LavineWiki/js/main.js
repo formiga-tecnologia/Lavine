@@ -21,9 +21,11 @@ function homeLink(){
 function aboutLink(){
     rto.aboutRoute()
 }
+
 class functionsClass{
     gotoLink(){
     }
 }
+
 
 export default functionsClass

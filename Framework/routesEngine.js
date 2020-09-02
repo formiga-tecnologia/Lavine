@@ -145,6 +145,11 @@ class routesEngine {
         this.listenersEvents[1] = eventClass
         window.addEventListener("popstate", this.listenersEvents[1])
     }
+    whenChangeLocation(){
+        window.addEventListener('hashchange', function() {
+            alert("Hash Changed");
+        });
+    }
 
 
     addEventSync() {

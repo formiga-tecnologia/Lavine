@@ -18,12 +18,14 @@ class routes{
             eng.routesEngine.registerRoute("http://127.0.0.1:5500/LavineWiki/index.html#docs",this.docc) 
             eng.routesEngine.registerRoute("http://127.0.0.1:5500/LavineWiki/index.html#about",this.aboutRoute)  
             eng.routesEngine.registerRoute("http://127.0.0.1:5500/LavineWiki/index.html#docs/structurebasic",this.structureBasic)
+            eng.routesEngine.whenChangeLocation()
         }
         isCreate=true
        // this.engA.renderEngine.pageDynamic="resre"
         //console.log(this.engA.renderEngine.pageDynamic)
         eng.routesEngine.runRoute("http://127.0.0.1:5500/LavineWiki/","http://127.0.0.1:5500/LavineWiki/index.html#pageInitial")
         eng.routesEngine.whenUpdate(eng.routesEngine.runRoute("http://127.0.0.1:5500/LavineWiki/","http://127.0.0.1:5500/LavineWiki/index.html#pageInitial"))
+        
     
     }
     teste(){
