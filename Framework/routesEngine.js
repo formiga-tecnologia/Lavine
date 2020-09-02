@@ -124,6 +124,7 @@ class routesEngine {
         this.routeComp.push(compEvent)
     }
     runRoute(initialPage,InitialPageRedirect){
+        this._PrivateChangeLocation()
         if(window.location.href==initialPage){
             console.log("eita")
             this.goToLink(InitialPageRedirect)
@@ -145,12 +146,18 @@ class routesEngine {
         this.listenersEvents[1] = eventClass
         window.addEventListener("popstate", this.listenersEvents[1])
     }
-    whenChangeLocation(){
-        window.addEventListener('hashchange', function() {
-            alert("Hash Changed");
-        });
+    whenChangeLocation(eventClass){
+        window.addEventListener('hashchange',eventClass)
     }
-
+    _PrivateChangeLocation(){
+        window.addEventListener('hashchange',this.logConsol)
+    }
+    logConsol(){
+        console.log("Olha ai")
+        let document = window.location.href.toString()
+        console.log(document)
+        location.replace(document)
+    }
 
     addEventSync() {
         this.resolveAwait()
