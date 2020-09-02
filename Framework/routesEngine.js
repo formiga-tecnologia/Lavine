@@ -124,7 +124,6 @@ class routesEngine {
         this.routeComp.push(compEvent)
     }
     runRoute(initialPage,InitialPageRedirect){
-        this._PrivateChangeLocation()
         if(window.location.href==initialPage){
             console.log("eita")
             this.goToLink(InitialPageRedirect)
