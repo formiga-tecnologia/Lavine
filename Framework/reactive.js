@@ -8,8 +8,21 @@ class Reactive{
     ReactiveList_status = []
     ReactiveList_notify = []
 
-    createCycle(){
-        
+
+    //pensar apartir daqui como criar uma lista  de execução para o sistema reativo
+    syncEffect(){
+        console.log("Multiply")
+        this.resolveAwait()
+    }
+    
+    resolveAwait(){
+        return new Promise(() => {
+            setTimeout(() => { this.syncEffect() }, 2000)
+        })
+    }
+     async createCycle(){
+         console.log("ei")
+         this.resolveAwait()
     }
 
 }
