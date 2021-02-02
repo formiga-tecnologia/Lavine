@@ -7,9 +7,11 @@ import reactive from '../../Framework/reactive.js'
 let eng = new EngineApp()
 let rot = new routes()
 let rec = new reactive()
+
+let testea = "1"
 function homePage(){
     let teste0 = "a"
-    rec.addReactiveElement(teste0,"teste")
+    rec.addReactiveElement(teste)
     let eng = new EngineApp()
     eng.componentsEngine.createComponent("article1",articlePage())
     eng.componentsEngine.renderComponent("dinamic-Article","article1")
@@ -18,6 +20,7 @@ function homePage(){
     document.getElementById("goBtn").addEventListener("click",goFunctions,false)
     //rec.createCycle()
     //rec.findValue("teste")
+    testea = "zero"
     //eng.routesEngine.whenAwait(teste)
 
 }
@@ -33,6 +36,7 @@ function articlePage(){
 }
 function teste(){
     console.log("testeA")
+    return testea
 }
 function teste2(){
     console.log("teste 2")
