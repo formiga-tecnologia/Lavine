@@ -8,7 +8,8 @@ let eng = new EngineApp()
 let rot = new routes()
 let rec = new reactive()
 function homePage(){
-    rec.ReactiveList.push(teste)
+    let teste0 = "a"
+    rec.addReactiveElement(teste0,"teste")
     let eng = new EngineApp()
     eng.componentsEngine.createComponent("article1",articlePage())
     eng.componentsEngine.renderComponent("dinamic-Article","article1")
@@ -16,6 +17,7 @@ function homePage(){
     example("function ComponentTeste(args){<br>   eng.componentsEngine.createComponent('article1',articlePage())<br>}")
     document.getElementById("goBtn").addEventListener("click",goFunctions,false)
     //rec.createCycle()
+    //rec.findValue("teste")
     //eng.routesEngine.whenAwait(teste)
 
 }
@@ -31,6 +33,9 @@ function articlePage(){
 }
 function teste(){
     console.log("testeA")
+}
+function teste2(){
+    console.log("teste 2")
 }
 
 export default homePage
