@@ -19,8 +19,7 @@ function homePage(){
     example("function ComponentTeste(args){<br>   eng.componentsEngine.createComponent('article1',articlePage())<br>}")
     document.getElementById("goBtn").addEventListener("click",goFunctions,false)
     //rec.createCycle()
-    //rec.findValue("teste")
-    //eng.routesEngine.whenAwait(teste)
+    testea ="0"
 
 }
 function goFunctions(){
@@ -42,6 +41,7 @@ function testeA(){
 }
 function teste2(){
     console.log("Valor foi modificado A")
+    document.getElementById("essaIdnemExiste").style.backgroundColor="red"
 }
 function teste3(){
     console.log("Valor foi modificado B")
