@@ -132,6 +132,7 @@ class routesEngine {
             console.log("eita else")
             this.whenChangeRoute(this.goToLink(this.routeIndex))
         }
+        this._PrivateChangeLocation()
     }
     //When executes update event in page
     whenUpdate(eventClass) {
@@ -145,7 +146,21 @@ class routesEngine {
         this.listenersEvents[1] = eventClass
         window.addEventListener("popstate", this.listenersEvents[1])
     }
-
+    whenChangeLocation(eventClass){
+        window.addEventListener('hashchange',eventClass)
+    }
+    _PrivateChangeLocation(){
+        window.addEventListener('hashchange',this.redirectLocation)
+    }
+    //#24 Problem to redirect to next link in location bar
+    redirectLocation(){
+        console.log("Olha ai")
+        let document = window.location.href.toString()
+        console.log(document)
+        location.replace(document)
+        //Study the functions the routeComp Var
+        console.log(this.routeComp)
+    }
 
     addEventSync() {
         this.resolveAwait()
