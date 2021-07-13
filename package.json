@@ -1,0 +1,27 @@
+{
+  "name": "lavine",
+  "version": "1.0.0",
+  "description": "[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/formiga-tecnologia/Lavine/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/formiga-tecnologia/Lavine/?branch=master)\r [![Netlify Status](https://api.netlify.com/api/v1/badges/8018fe7d-1ce3-4070-a4b4-0f3c3ac4fe9c/deploy-status)](https://app.netlify.com/sites/lavine/deploys)",
+  "main": "index.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/formiga-tecnologia/Lavine.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/formiga-tecnologia/Lavine/issues"
+  },
+  "homepage": "https://github.com/formiga-tecnologia/Lavine#readme",
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "webpack": "^5.44.0"
+  }
+}
