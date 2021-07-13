@@ -1,8 +1,13 @@
-const path  = Require('path')
-Module.exports ={
-    entry: "./Framework/engine.js",
+const path  = require('path')
+module.exports ={
+    entry: './Framework/copile.js',
     output:{
-        filenmae:"engine.js",
-        path:path.resolve(__dirname,"dist"),
+        filename:"engine.js",
+        library: {
+            "name":'engine',
+            "type":'commonjs',
+            "export":"default"
+        },
+        path: path.resolve(__dirname,"dist"),
     }
 }
