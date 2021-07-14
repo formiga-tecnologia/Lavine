@@ -29,6 +29,7 @@ class routesEngine {
                 verifyRoute=false
         }
         else {
+            //Trabalhar para poder modificar esse aviso, ou a Tag Alvo
             document.getElementById("app").innerText = "404 route dont found"
         }
     }
@@ -129,7 +130,6 @@ class routesEngine {
             this.goToLink(InitialPageRedirect)
         }
         else{
-            console.log("eita else")
             this.whenChangeRoute(this.goToLink(this.routeIndex))
         }
         this._PrivateChangeLocation()
@@ -159,7 +159,7 @@ class routesEngine {
         console.log(document)
         location.replace(document)
         //Study the functions the routeComp Var
-        console.log(this.routeComp)
+        //console.log(this.routeComp) <= in case future use
     }
 
     addEventSync() {

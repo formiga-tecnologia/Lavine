@@ -18,7 +18,7 @@ class routes{
             eng.routesEngine.registerRoute("http://127.0.0.1:5500/LavineWiki/index.html#docs",this.docc) 
             eng.routesEngine.registerRoute("http://127.0.0.1:5500/LavineWiki/index.html#about",this.aboutRoute)  
             eng.routesEngine.registerRoute("http://127.0.0.1:5500/LavineWiki/index.html#docs/structurebasic",this.structureBasic)
-            let indexPages = "http://127.0.0.1:5500/LavineWiki/index.html#docs/structurebasic"
+            let indexPages = "http://127.0.0.1:5500/LavineWiki/index.html#pageInitial"
             eng.routesEngine.whenChangeLocation(eng.routesEngine.goToLink(indexPages))
         }
         isCreate=true
