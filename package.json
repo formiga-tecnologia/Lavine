@@ -1,27 +1,31 @@
 {
-  "name": "webpack-dev",
+  "name": "lavinedev",
   "version": "1.0.0",
-  "description": "[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/formiga-tecnologia/Lavine/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/formiga-tecnologia/Lavine/?branch=master)\r [![Netlify Status](https://api.netlify.com/api/v1/badges/8018fe7d-1ce3-4070-a4b4-0f3c3ac4fe9c/deploy-status)](https://app.netlify.com/sites/lavine/deploys)",
-  "private": "true",
+  "description": "Dev tool for create SPA Applications",
+  "main": "index.js",
+  "directories": {
+    "example": "example"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "webpack": "^5.44.0",
+    "webpack-cli": "^4.7.2"
+  },
+  "devDependencies": {},
   "scripts": {
-    "build":"webpack"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/formiga-tecnologia/Lavine.git"
   },
-  "keywords": [],
-  "author": "Formiga_tecnologia",
+  "keywords": [
+    "frontend"
+  ],
+  "author": "Formiga",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/formiga-tecnologia/Lavine/issues"
   },
-  "homepage": "https://github.com/formiga-tecnologia/Lavine#readme",
-  "dependencies": {
-    "lodash": "^4.17.21",
-    "webpack": "^5.44.0"
-  },
-  "devDependencies": {
-    "webpack-cli": "^4.7.2"
-  }
+  "homepage": "https://github.com/formiga-tecnologia/Lavine#readme"
 }
