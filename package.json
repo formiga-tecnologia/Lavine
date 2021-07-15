@@ -1,8 +1,8 @@
 {
   "name": "lavinedev",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "description": "Dev tool for create SPA Applications",
-  "main": "Lavine.js",
+  "main": "Lavine",
   "directories": {
     "example": "example"
   },

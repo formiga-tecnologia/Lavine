@@ -1,0 +1,1 @@
+//Write this document for import for all functions of Lavine.js//
