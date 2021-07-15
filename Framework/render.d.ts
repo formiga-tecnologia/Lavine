@@ -1,6 +1,4 @@
-//Write this document for import for all functions of Lavine.js//
 
-//render Lavine module
 export class Render{
     newElement(renderElement:any,content:any,selectObject:any,classList:any,Id:any):void
     createHtml(elementTarget:any,content:any):void

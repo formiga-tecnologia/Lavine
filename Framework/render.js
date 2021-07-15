@@ -57,4 +57,5 @@ class RenderEngine {
     }
 }
 
-export default RenderEngine
+const _renderEngine = RenderEngine
+export {_renderEngine as RenderEngine}
