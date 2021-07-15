@@ -1,4 +1,4 @@
-import engine from './Framework/engine.js'
+import engine from '/Framework/engine.js'
 
 //Matyerizar todas as classes nesta unica classe
 class Engine{
@@ -9,4 +9,4 @@ class Engine{
 
 }
 
-module.exports.Engine = LavineEngine
+export default Engine
