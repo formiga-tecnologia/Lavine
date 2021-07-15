@@ -21,7 +21,13 @@ See documentation in topics :
 
 ## Example
 
-If you can learn Lavine Js and dont have installed in your project now, use CDN and see its example base:
+You get start with one minimun code in your project, using  one module the Render.js follow the code:
+
+``` .
+let element = new Lavine.render()
+element.newElement("h2","Hello world","app","basic-style","#nav-initial");
+
+```
 
 ## Class of Lavine V0.1
 
