@@ -1,8 +1,9 @@
 import RenderModule from './Framework/render.js'
+import ComponentsModule from './Framework/components.js'
 
 //Render Core Set//
 class Render{
-    _renderModule = new RenderModul
+    _renderModule = new RenderModule
     newElement(renderElement,content,selectObject,classList,Id){
         this._renderModule.newrenderElement(renderElement,content,selectObject,classList,Id)        
     }
@@ -28,9 +29,24 @@ class Render{
         this._renderModule.clearPage()
     }
 }
+class Components{
+    _componentsModule = new ComponentsModule 
+    createComponent(componentName,content){
+        this._componentsModule.createComponent(componentName,content)
+    }
+    renderComponent(targetRender,componentName){
+        this._componentsModule.renderComponent(targetRender,componentName)
+    }
+    addListener(targetElement,type,functionCall){
+        this._componentsModule.addListener(targetElement,type,functionCall)
+    }
 
+}
 
 
 //exports class
 const _Render =  Render
 export {_Render as Render}
+
+const _components = Components
+export {_components as Components}
