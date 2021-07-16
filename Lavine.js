@@ -121,8 +121,6 @@ class Security{
     }
 }
 
-
-
 //exports class
 const _Render = Render
 export { _Render as Render }
