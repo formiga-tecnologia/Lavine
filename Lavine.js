@@ -2,8 +2,7 @@ import RenderModule from './Framework/render.js'
 
 //Render Core Set//
 class Render{
-    _renderModule = new RenderModule
-
+    _renderModule = new RenderModul
     newElement(renderElement,content,selectObject,classList,Id){
         this._renderModule.newrenderElement(renderElement,content,selectObject,classList,Id)        
     }
