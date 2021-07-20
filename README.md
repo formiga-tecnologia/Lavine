@@ -31,10 +31,11 @@ element.newElement("h2","Hello world","app","basic-style","#nav-initial");
 
 ## Class of Lavine V0.1
 
-The Lavine have 5 big classes:
+The Lavine have 6 big classes:
 
 * Components.js
 * Engine.js
 * Render.js
 * RoutesEngine.js
+* Security.js
 * Mapping.js (coming soon)
