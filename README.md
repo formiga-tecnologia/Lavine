@@ -39,3 +39,8 @@ The Lavine have 6 big classes:
 * RoutesEngine.js
 * Security.js
 * Mapping.js (coming soon)
+
+##Team of Lavine <3
+
+Felipe Katão (https://github.com/FelipeKatao)
+The Analist and founder the formiga tecnologia, builder of core the formiga set.
