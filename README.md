@@ -19,6 +19,9 @@ See documentation in topics :
 
 * [Tutorial](https://github.com>)
 
+## Instalation 
+For indtalation in your projext use the Npm with Node.js
+
 ## Example
 
 You get start with one minimun code in your project, using  one module the Render.js follow the code:
