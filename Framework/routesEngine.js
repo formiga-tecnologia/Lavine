@@ -25,7 +25,7 @@ class routesEngine {
                 history.pushState(link, link)
                 this.routeIndex = link
                 window.location.href = link
-                this.routeComp[indexRoute]()
+                if(this.routeComp[indexRoute] != undefined)this.routeComp[indexRoute]()
                 verifyRoute=false
         }
         else {
@@ -135,10 +135,10 @@ class routesEngine {
     }
 
     //Create Route engine native with Lavine
-    routeExecution(initialpage,initialPageRedirect){
+    routeExecution(initialpage,initialPageRedirect,mainFunction){
+        this.registerRoute(initialpage,mainFunction)
          this.runRoute(initialpage,initialPageRedirect)
         //this.whenUpdate(this.routeExecution(initialpage,initialPageRedirect))
-        //Colocar aqui checagem de mesmo endereço//
     }
 
     //When executes update event in page
