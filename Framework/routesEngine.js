@@ -137,7 +137,8 @@ class routesEngine {
     //Create Route engine native with Lavine
     routeExecution(initialpage,initialPageRedirect,mainFunction){
         this.registerRoute(initialpage,mainFunction)
-         this.runRoute(initialpage,initialPageRedirect)
+         this.runRoute(window.location.href,initialPageRedirect)
+         //#25 
         //this.whenUpdate(this.routeExecution(initialpage,initialPageRedirect))
     }
 
