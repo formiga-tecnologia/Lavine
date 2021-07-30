@@ -25,7 +25,7 @@ class routesEngine {
                 history.pushState(link, link)
                 this.routeIndex = link
                 window.location.href = link
-                this.routeComp[indexRoute]()
+                if(this.routeComp[indexRoute] != undefined)this.routeComp[indexRoute]()
                 verifyRoute=false
         }
         else {
@@ -126,7 +126,6 @@ class routesEngine {
     }
     runRoute(initialPage,InitialPageRedirect){
         if(window.location.href==initialPage){
-            console.log("eita")
             this.goToLink(InitialPageRedirect)
         }
         else{
@@ -134,6 +133,15 @@ class routesEngine {
         }
         this._PrivateChangeLocation()
     }
+
+    //Create Route engine native with Lavine
+    routeExecution(initialpage,initialPageRedirect,mainFunction){
+        this.registerRoute(initialpage,mainFunction)
+         this.runRoute(window.location.href,initialPageRedirect)
+         //#25 
+        //this.whenUpdate(this.routeExecution(initialpage,initialPageRedirect))
+    }
+
     //When executes update event in page
     whenUpdate(eventClass) {
         this.listenersEvents[0] = eventClass
@@ -177,4 +185,5 @@ class routesEngine {
     }
 }
 
-export default routesEngine
+const _Routes = routesEngine
+export {_Routes as RoutesModule}

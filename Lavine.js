@@ -1,8 +1,8 @@
-import RenderModule from './Framework/render.js'
-import ComponentsModule from './Framework/components.js'
-import ReactiveModule from './Framework/reactive.js'
-import RoutesModule from './Framework/routesEngine.js'
-import SecurityModule from './Framework/security.js'
+import {RenderModule} from './Framework/render.js'
+import {ComponentsEngine} from './Framework/components.js'
+import {ReactiveModule} from './Framework/reactive.js'
+import {RoutesModule} from './Framework/routesEngine.js'
+import {SecurityModule} from './Framework/security.js'
 
 //Render Core Set//
 class Render {
@@ -33,15 +33,15 @@ class Render {
     }
 }
 class Components {
-    _componentsModule = new ComponentsModule
+    _ComponentsEngine = new ComponentsEngine
     createComponent(componentName, content) {
-        this._componentsModule.createComponent(componentName, content)
+        this._ComponentsEngine.createComponent(componentName, content)
     }
     renderComponent(targetRender, componentName) {
-        this._componentsModule.renderComponent(targetRender, componentName)
+        this._CComponentsEngine.renderComponent(targetRender, componentName)
     }
     addListener(targetElement, type, functionCall) {
-        this._componentsModule.addListener(targetElement, type, functionCall)
+        this._CComponentsEngine.addListener(targetElement, type, functionCall)
     }
 }
 class Reactive {
@@ -107,6 +107,9 @@ class Routes {
     whenAwait(eventClass) {
         this._routesModule.whenAwait(eventClass)
     }
+    routeExecution(initialpage,initialPageRedirect){
+        this._routesModule.routeExecution(initialpage,initialPageRedirect)
+    }
 }
 class Security{
     _securityModule = new SecurityModule
@@ -125,8 +128,8 @@ class Security{
 const _Render = Render
 export { _Render as Render }
 
-const _components = Components
-export { _components as Components }
+const _ComponentsEngine = Components
+export { _ComponentsEngine as Components }
 
 const _Reactive = Reactive
 export { _Reactive as Reactive }

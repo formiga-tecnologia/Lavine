@@ -58,4 +58,4 @@ class RenderEngine {
 }
 
 const _renderEngine = RenderEngine
-export {_renderEngine as RenderEngine}
+export {_renderEngine as RenderModule}
