@@ -154,7 +154,6 @@ class routesEngine {
     }
     //#24 Problem to redirect to next link in location bar
     redirectLocation(){
-        console.log("Olha ai")
         let document = window.location.href.toString()
         console.log(document)
         location.replace(document)
