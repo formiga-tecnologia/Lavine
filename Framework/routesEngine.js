@@ -136,8 +136,9 @@ class routesEngine {
 
     //Create Route engine native with Lavine
     routeExecution(initialpage,initialPageRedirect){
-        this.runRoute(initialpage,initialPageRedirect)
-        this.whenUpdate(this.routeExecution(initialpage,initialPageRedirect))
+         this.runRoute(initialpage,initialPageRedirect)
+        //this.whenUpdate(this.routeExecution(initialpage,initialPageRedirect))
+        //Colocar aqui checagem de mesmo endereço//
     }
 
     //When executes update event in page
