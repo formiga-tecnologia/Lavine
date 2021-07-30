@@ -133,6 +133,13 @@ class routesEngine {
         }
         this._PrivateChangeLocation()
     }
+
+    //Create Route engine native with Lavine
+    routeExecution(initialpage,initialPageRedirect){
+        this.runRoute(initialpage,initialPageRedirect)
+        this.whenUpdate(this.routeExecution(initialpage,initialPageRedirect))
+    }
+
     //When executes update event in page
     whenUpdate(eventClass) {
         this.listenersEvents[0] = eventClass
@@ -176,4 +183,5 @@ class routesEngine {
     }
 }
 
-export default routesEngine
+const _Routes = routesEngine
+export {_Routes as RoutesModule}

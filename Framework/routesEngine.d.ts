@@ -14,4 +14,5 @@ export class Routes{
     addEventSync():void
     resolveAwait():void
     whenAwait(eventClass:any):void
+    routeExecution(initialpage:any,initialPageRedirect:any):void
 }
