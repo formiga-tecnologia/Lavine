@@ -126,7 +126,6 @@ class routesEngine {
     }
     runRoute(initialPage,InitialPageRedirect){
         if(window.location.href==initialPage){
-            console.log("eita")
             this.goToLink(InitialPageRedirect)
         }
         else{
