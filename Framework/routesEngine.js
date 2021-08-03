@@ -138,14 +138,13 @@ routePropsVars=[]
     routeExecution(initialpage,initialPageRedirect,mainFunction){
         this.registerRoute(initialpage,mainFunction)
         if(window.location.href == initialpage){
-            this.goToLink(initialPageRedirect)
+            mainFunction
         }
         else{
-            this.runRoute(window.location.href,initialPageRedirect)
-         this.whenChangeLocation(this.goToLink(window.location.href))
+            console.log("nao é a pagina inicial")
+            this._PrivateChangeLocation()
+            //this.whenChangeLocation(this.goToLink(window.location.href))
         }
-         //#25 
-       // this.whenUpdate(this.routeExecution(initialpage,initialPageRedirect))
     }
 
     //When executes update event in page
@@ -165,6 +164,7 @@ routePropsVars=[]
     }
     _PrivateChangeLocation(){
         window.addEventListener('hashchange',this.redirectLocation)
+        this.goToLink(window.location.href)
     }
     //#24 Problem to redirect to next link in location bar
     redirectLocation(){
