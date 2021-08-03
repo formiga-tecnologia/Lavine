@@ -4,7 +4,7 @@ class routesEngine {
     routeVars = []
     routePath = []
     routeComp = []
-    routePropsVars=[]
+routePropsVars=[]
     listenersEvents = [0, 1]
     listenerAwaitEvents = ""
     //Define Routes
@@ -137,9 +137,15 @@ class routesEngine {
     //Create Route engine native with Lavine
     routeExecution(initialpage,initialPageRedirect,mainFunction){
         this.registerRoute(initialpage,mainFunction)
-         this.runRoute(window.location.href,initialPageRedirect)
+        if(window.location.href == initialpage){
+            this.goToLink(initialPageRedirect)
+        }
+        else{
+            this.runRoute(window.location.href,initialPageRedirect)
+         this.whenChangeLocation(this.goToLink(window.location.href))
+        }
          //#25 
-        //this.whenUpdate(this.routeExecution(initialpage,initialPageRedirect))
+       // this.whenUpdate(this.routeExecution(initialpage,initialPageRedirect))
     }
 
     //When executes update event in page
