@@ -9,7 +9,7 @@ routePropsVars=[]
     listenerAwaitEvents = ""
     //Define Routes
     goToLink(link) {
-        let verifyRoute = false
+        let verifyRoute = true
         let indexRoute=0
         document.location.href = link
         link = this.removeVarsOfRoute(link)
@@ -143,7 +143,6 @@ routePropsVars=[]
         else{
             console.log("nao é a pagina inicial")
             this._PrivateChangeLocation()
-            //this.whenChangeLocation(this.goToLink(window.location.href))
         }
     }
 
@@ -166,13 +165,12 @@ routePropsVars=[]
         window.addEventListener('hashchange',this.redirectLocation)
         this.goToLink(window.location.href)
     }
+
     //#24 Problem to redirect to next link in location bar
     redirectLocation(){
         let document = window.location.href.toString()
         console.log(document)
         location.replace(document)
-        //Study the functions the routeComp Var
-        //console.log(this.routeComp) <= in case future use
     }
 
     addEventSync() {
