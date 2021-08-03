@@ -110,6 +110,9 @@ class Routes {
     routeExecution(initialpage,initialPageRedirect){
         this._routesModule.routeExecution(initialpage,initialPageRedirect)
     }
+    registerNest(linkedTo,routePathRegister,compevent,nest){
+        this._routesModule.registerNest(linkedTo,routePathRegister,compevent,nest)
+    }
 }
 class Security{
     _securityModule = new SecurityModule
