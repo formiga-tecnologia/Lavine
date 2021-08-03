@@ -9,11 +9,10 @@ routePropsVars=[]
     listenerAwaitEvents = ""
     //Define Routes
     goToLink(link) {
-        let verifyRoute = true
+        let verifyRoute = false
         let indexRoute=0
         document.location.href = link
         link = this.removeVarsOfRoute(link)
-        
         for (let indexRoutesFinder = 0; indexRoutesFinder < this.routePath.length; indexRoutesFinder++) {
             if(this.routePath[indexRoutesFinder] == link){
                 verifyRoute=true
@@ -30,6 +29,7 @@ routePropsVars=[]
         }
         else {
             //Trabalhar para poder modificar esse aviso, ou a Tag Alvo
+            console.log("tenta ai")
             document.getElementById("app").innerText = "404 route dont found"
         }
     }
@@ -141,8 +141,7 @@ routePropsVars=[]
             mainFunction
         }
         else{
-            console.log("nao é a pagina inicial")
-            this._PrivateChangeLocation()
+          this._PrivateChangeLocation()
         }
     }
 
