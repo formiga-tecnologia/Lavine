@@ -18,7 +18,7 @@ routePropsVars=[]
                 verifyRoute=true
                 indexRoute =indexRoutesFinder
             }
-            
+
         }
         if (verifyRoute == true) {
                 history.pushState(link, link)
@@ -29,7 +29,6 @@ routePropsVars=[]
         }
         else {
             //Trabalhar para poder modificar esse aviso, ou a Tag Alvo
-            console.log("tenta ai")
             document.getElementById("app").innerText = "404 route dont found"
         }
     }
@@ -123,6 +122,18 @@ routePropsVars=[]
     registerRoute(routePathRegister, compEvent) {
         this.routePath.push(routePathRegister)
         this.routeComp.push(compEvent)
+    }
+
+    //Adicionar funções para melhorar o sistema encadeado de rotas
+    //Alem do registro adicionar no GotoLink como executar e proceder quando achar uma nestedlink
+    registerNest(linkedTo,routePathRegister,compevent,nest){
+        this.registerRoute(linkedTo+routePathRegister,compevent)
+        for (let indexRoutesFinder = 0; indexRoutesFinder < this.routePath.length; indexRoutesFinder++) {
+            if(this.routePath[indexRoutesFinder].includes(linkedTo)){
+
+                break
+            }
+        }
     }
     runRoute(initialPage,InitialPageRedirect){
         if(window.location.href==initialPage){

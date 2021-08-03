@@ -15,4 +15,5 @@ export class Routes{
     resolveAwait():void
     whenAwait(eventClass:any):void
     routeExecution(initialpage:any,initialPageRedirect:any):void
+    registerNest(linkedTo:any,routePathRegister:any,compevent:any,nest:any):void
 }
