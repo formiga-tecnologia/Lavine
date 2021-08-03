@@ -4,28 +4,28 @@ class routesEngine {
     routeVars = []
     routePath = []
     routeComp = []
-routePropsVars=[]
+    routePropsVars = []
     listenersEvents = [0, 1]
     listenerAwaitEvents = ""
     //Define Routes
     goToLink(link) {
         let verifyRoute = false
-        let indexRoute=0
+        let indexRoute = 0
         document.location.href = link
         link = this.removeVarsOfRoute(link)
         for (let indexRoutesFinder = 0; indexRoutesFinder < this.routePath.length; indexRoutesFinder++) {
-            if(this.routePath[indexRoutesFinder] == link){
-                verifyRoute=true
-                indexRoute =indexRoutesFinder
+            if (this.routePath[indexRoutesFinder] == link) {
+                verifyRoute = true
+                indexRoute = indexRoutesFinder
             }
 
         }
         if (verifyRoute == true) {
-                history.pushState(link, link)
-                this.routeIndex = link
-                window.location.href = link
-                if(this.routeComp[indexRoute] != undefined)this.routeComp[indexRoute]()
-                verifyRoute=false
+            history.pushState(link, link)
+            this.routeIndex = link
+            window.location.href = link
+            if (this.routeComp[indexRoute] != undefined) this.routeComp[indexRoute]()
+            verifyRoute = false
         }
         else {
             //Trabalhar para poder modificar esse aviso, ou a Tag Alvo
@@ -34,27 +34,27 @@ routePropsVars=[]
     }
 
     getUpdateRoutes() {
-        let routeStr=[]
-        let countRoutesValid=0
-        let FindRoute=""
+        let routeStr = []
+        let countRoutesValid = 0
+        let FindRoute = ""
         //verify exact route
         this.getRouteVars()
         this.routePath.forEach(element => {
             //collect vars outside 
-            routeStr=this.getRoutesOutside(element)
-            for(let indexVars=0;indexVars<routeStr.length;indexVars++){
-                if(routeStr[indexVars].includes(this.routeVars[indexVars])){
+            routeStr = this.getRoutesOutside(element)
+            for (let indexVars = 0; indexVars < routeStr.length; indexVars++) {
+                if (routeStr[indexVars].includes(this.routeVars[indexVars])) {
                     countRoutesValid++
                 }
-                else{
-                    countRoutesValid=-2
+                else {
+                    countRoutesValid = -2
                 }
             }
-            if(countRoutesValid == routeStr.length && this.routeVars.length == routeStr.length){
-                FindRoute=element
+            if (countRoutesValid == routeStr.length && this.routeVars.length == routeStr.length) {
+                FindRoute = element
                 this.goToLink(FindRoute)
             }
-            countRoutesValid=0
+            countRoutesValid = 0
         });
     }
 
@@ -92,29 +92,29 @@ routePropsVars=[]
         TargetRouteVars.push(varB)
         return TargetRouteVars
     }
-    removeVarsOfRoute(route){
-        this.routePropsVars=[]
-        let IndexRouteLength=0
-        let newRoute=""
-        let varsRoute=""
-        while(IndexRouteLength<route.length){
-            if(route[IndexRouteLength]=='='){
+    removeVarsOfRoute(route) {
+        this.routePropsVars = []
+        let IndexRouteLength = 0
+        let newRoute = ""
+        let varsRoute = ""
+        while (IndexRouteLength < route.length) {
+            if (route[IndexRouteLength] == '=') {
                 for (let index = IndexRouteLength; index < route.length; index++) {
-                    if(route[IndexRouteLength]=="/"){
+                    if (route[IndexRouteLength] == "/") {
                         break
                     }
-                    varsRoute+=route[IndexRouteLength]
+                    varsRoute += route[IndexRouteLength]
                     IndexRouteLength++
                 }
             }
-            if(varsRoute!=""){
-                varsRoute =varsRoute.replace('=','')
+            if (varsRoute != "") {
+                varsRoute = varsRoute.replace('=', '')
                 this.routePropsVars.push(varsRoute)
             }
-            if(route[IndexRouteLength]!=undefined){
-            newRoute+=route[IndexRouteLength]
+            if (route[IndexRouteLength] != undefined) {
+                newRoute += route[IndexRouteLength]
             }
-            varsRoute=""
+            varsRoute = ""
             IndexRouteLength++
         }
         return newRoute
@@ -126,33 +126,33 @@ routePropsVars=[]
 
     //Adicionar funções para melhorar o sistema encadeado de rotas
     //Alem do registro adicionar no GotoLink como executar e proceder quando achar uma nestedlink
-    registerNest(linkedTo,routePathRegister,compevent,nest){
-        this.registerRoute(linkedTo+routePathRegister,compevent)
+    registerNest(linkedTo, routePathRegister, compevent, nest) {
+        this.registerRoute(linkedTo + routePathRegister, compevent)
         for (let indexRoutesFinder = 0; indexRoutesFinder < this.routePath.length; indexRoutesFinder++) {
-            if(this.routePath[indexRoutesFinder].includes(linkedTo)){
+            if (this.routePath[indexRoutesFinder].includes(linkedTo)) {
 
                 break
             }
         }
     }
-    runRoute(initialPage,InitialPageRedirect){
-        if(window.location.href==initialPage){
+    runRoute(initialPage, InitialPageRedirect) {
+        if (window.location.href == initialPage) {
             this.goToLink(InitialPageRedirect)
         }
-        else{
+        else {
             this.whenChangeRoute(this.goToLink(this.routeIndex))
         }
         this._PrivateChangeLocation()
     }
 
     //Create Route engine native with Lavine
-    routeExecution(initialpage,initialPageRedirect,mainFunction){
-        this.registerRoute(initialpage,mainFunction)
-        if(window.location.href == initialpage){
+    routeExecution(initialpage, initialPageRedirect, mainFunction) {
+        this.registerRoute(initialpage, mainFunction)
+        if (window.location.href == initialpage) {
             mainFunction
         }
-        else{
-          this._PrivateChangeLocation()
+        else {
+            this._PrivateChangeLocation()
         }
     }
 
@@ -168,16 +168,16 @@ routePropsVars=[]
         this.listenersEvents[1] = eventClass
         window.addEventListener("popstate", this.listenersEvents[1])
     }
-    whenChangeLocation(eventClass){
-        window.addEventListener('hashchange',eventClass)
+    whenChangeLocation(eventClass) {
+        window.addEventListener('hashchange', eventClass)
     }
-    _PrivateChangeLocation(){
-        window.addEventListener('hashchange',this.redirectLocation)
+    _PrivateChangeLocation() {
+        window.addEventListener('hashchange', this.redirectLocation)
         this.goToLink(window.location.href)
     }
 
     //#24 Problem to redirect to next link in location bar
-    redirectLocation(){
+    redirectLocation() {
         let document = window.location.href.toString()
         console.log(document)
         location.replace(document)
@@ -200,4 +200,4 @@ routePropsVars=[]
 }
 
 const _Routes = routesEngine
-export {_Routes as RoutesModule}
+export { _Routes as RoutesModule }
