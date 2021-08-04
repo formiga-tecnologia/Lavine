@@ -19,7 +19,7 @@ export class Render{
     clearPage():void
 }
 
-export class Components{
+export class ComponentsEngine{
     createComponent(componentName:any,content:any):void
     renderComponent(targetRender:any,componentName:any):void
     addListener(targetElement:any,type:any,functionCall:any):void
@@ -47,6 +47,8 @@ export class Routes{
     addEventSync():void
     resolveAwait():void
     whenAwait(eventClass:any):void
+    routeExecution(initialpage:any,initialPageRedirect:any):void
+    registerNest(linkedTo:any,routePathRegister:any,compevent:any,nest:any):void
 }
 export class Security{
     AddSecurityRule(rulefunction:any,NameRule:any):void

@@ -1,9 +1,9 @@
-import routesEngine from "./routesEngine.js"
+import {RoutesModule} from "./routesEngine.js"
 class Security{
     securityRules = []
     reportLog=[]
     routeRegister = false
-    routeSecurity = new routesEngine
+    routeSecurity = new RoutesModule
     AddSecurityRule(rulefunction,NameRule){
         this.securityRules.push(NameRule)
         this.securityRules.push(rulefunction)
@@ -31,4 +31,5 @@ class Security{
     }
 }
 
-export default Security
+const _Security = Security
+export {_Security  as SecurityModule}

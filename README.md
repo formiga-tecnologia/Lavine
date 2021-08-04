@@ -19,6 +19,9 @@ See documentation in topics :
 
 * [Tutorial](https://github.com>)
 
+## Instalation 
+For indtalation in your projext use the Npm with Node.js
+
 ## Example
 
 You get start with one minimun code in your project, using  one module the Render.js follow the code:
@@ -31,10 +34,22 @@ element.newElement("h2","Hello world","app","basic-style","#nav-initial");
 
 ## Class of Lavine V0.1
 
-The Lavine have 5 big classes:
+The Lavine have 6 big classes:
 
 * Components.js
 * Engine.js
 * Render.js
 * RoutesEngine.js
+* Security.js
 * Mapping.js (coming soon)
+
+## Team of Lavine <3
+
+Felipe Katão (https://github.com/FelipeKatao)
+The Analist and founder the formiga tecnologia, builder of core the formiga set.
+
+Marcia Vitória Bentes Gomes (https://github.com/MarciaVit)
+Developer Web front end junior.
+
+Marcia Alves (https://github.com/marlaves)
+The Business Analyst from Formiga Tecnologia. 

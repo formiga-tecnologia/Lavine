@@ -51,4 +51,5 @@ class Reactive{
 
 }
 
-export default Reactive
+const _Reactive = Reactive
+export {_Reactive as ReactiveModule}

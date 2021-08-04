@@ -1,6 +1,6 @@
-import RenderEngine from './render.js'
+import {RenderModule} from './render.js'
 
-class Components{
+class ComponentsEngine{
     componentsArray = []
     render = new RenderEngine
     readerVar =""
@@ -40,4 +40,5 @@ class Components{
     }
 }
 
-export default Components
+const _ComponentsEngine = ComponentsEngine
+export {_ComponentsEngine as ComponentsEngine}
