@@ -130,7 +130,7 @@ class routesEngine {
         this.registerRoute(linkedTo + routePathRegister, compevent)
         for (let indexRoutesFinder = 0; indexRoutesFinder < this.routePath.length; indexRoutesFinder++) {
             if (this.routePath[indexRoutesFinder].includes(linkedTo)) {
-
+//adicionar aqui a função 
                 break
             }
         }
