@@ -21,6 +21,7 @@ See documentation in topics :
 
 ## Instalation 
 For indtalation in your projext use the Npm with Node.js
+.
 
 ## Example
 
