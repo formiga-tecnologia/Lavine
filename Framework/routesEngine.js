@@ -7,6 +7,7 @@ class routesEngine {
     routePropsVars = []
     listenersEvents = [0, 1]
     listenerAwaitEvents = ""
+
     //Define Routes
     goToLink(link) {
         let verifyRoute = false
@@ -130,10 +131,40 @@ class routesEngine {
         this.registerRoute(linkedTo + routePathRegister, compevent)
         for (let indexRoutesFinder = 0; indexRoutesFinder < this.routePath.length; indexRoutesFinder++) {
             if (this.routePath[indexRoutesFinder].includes(linkedTo)) {
-
+//adicionar aqui a função 
                 break
             }
         }
+    }
+    nestRoutes(targetLocation,routeTarget,QtdPathNest){
+        let CountTargetLocation = targetLocation.length;
+        let index_count=0
+        let QtdNest = 0
+
+
+        while(CountTargetLocation>=index_count){
+            if(targetLocation[index_count] === '/'){
+                QtdNest+=1
+            }
+            if(QtdNest === QtdPathNest){
+                console.log(CountTargetLocation+" !Pegamos aqui")
+                break;
+            }
+            console.log(targetLocation[index_count])
+            index_count+=1;
+        }
+        console.log(index_count)
+        console.log(CountTargetLocation)
+        let targetCase = targetLocation.slice(index_count+1,CountTargetLocation)
+        let RouteRegistred = this.routePath.indexOf(routeTarget+'/'+targetCase)
+        
+        if(RouteRegistred>=0){
+            this.goToLink(routeTarget+'/'+targetCase)
+        }
+        else{
+            this.goToLink(targetLocation)
+        }
+
     }
     runRoute(initialPage, InitialPageRedirect) {
         if (window.location.href == initialPage) {

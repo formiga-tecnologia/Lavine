@@ -2,7 +2,7 @@ import {RenderModule} from './render.js'
 
 class ComponentsEngine{
     componentsArray = []
-    render = new RenderEngine
+    render = new RenderModule()
     readerVar =""
     varsComp = []
     createComponent(componentName,content){

@@ -1,4 +1,5 @@
 export class Routes{
+    
     goToLink(link:any):void
     getUpdateRoutes():void
     getRouteVars():void
@@ -16,4 +17,5 @@ export class Routes{
     whenAwait(eventClass:any):void
     routeExecution(initialpage:any,initialPageRedirect:any):void
     registerNest(linkedTo:any,routePathRegister:any,compevent:any,nest:any):void
+    nestRoutes(targetLocation:any,routeTarget:any,QtdPathNest:any):void
 }
