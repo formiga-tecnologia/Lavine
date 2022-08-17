@@ -38,7 +38,7 @@ export class Routes{
     getRoutesOutside(routetarget:any):void
     removeVarsOfRoute(route:any):any
     registerRoute(routePathRegister:any, compEvent:any):void
-    runRoute(initialPage:any, InitialPageRedirect:any):voisd
+    runRoute(initialPage:any, InitialPageRedirect:any):void
     whenUpdate(eventClass:any):void
     whenChange(eventClass:any, object:any):void
     whenChangeRoute(eventClass:any):void
